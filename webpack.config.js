@@ -27,8 +27,8 @@ var config = {
       },
       { 
         test: /\.scss$/, 
-        // loader: ExtractTextPlugin.extract("style-loader", "css-loader","sass-loader")
-        loaders:['style','css','sass']
+        loader: ExtractTextPlugin.extract("css!sass")
+        // loaders:['style','css','sass']
       },
       {
         test:   /\.html/,
@@ -37,11 +37,29 @@ var config = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      {
+        test: /\.woff$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff&name=[path][name].[ext]"
+      }, 
+      {
+        test: /\.woff2$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff2&name=[path][name].[ext]"
+      }, 
+      {
+        test: /\.(eot|ttf|svg|gif|png)$/,
+        loader: "file-loader"
       }
+
     ]
   },
   plugins: [
-    // new ExtractTextPlugin("style.css", { allChunks: true })
+    new ExtractTextPlugin("style.css", { allChunks: true }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      React: 'react'
+    })
     // new webpack.HotModuleReplacementPlugin()
   ]
 };

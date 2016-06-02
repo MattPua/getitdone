@@ -1,4 +1,3 @@
-import React from 'react';
 
 require('./item.scss');
 

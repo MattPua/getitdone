@@ -13,7 +13,7 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className="header">
+      <div className="title">
         <h2>Get It Done</h2>
         <hr/>
       </div>

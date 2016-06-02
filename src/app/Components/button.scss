@@ -2,10 +2,23 @@
 
 .btn {
   padding: 5px 20px;
-  border-radius: 5px;
 }
 
 .btn.active{
   background-color: $primary;
   color: white;
+}
+
+.btn.primary{
+  background-color: $primary;
+  color: white;
+}
+
+.btn.delete{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.btn-group{
+  margin: 0 5px;
 }

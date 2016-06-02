@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import AwesomeComponent from './AwesomeComponent';
 import Header from './Components/header';
 import List from './Components/list';
-
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -14,7 +13,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="container">
         <Header/>
         <List/>
       </div>

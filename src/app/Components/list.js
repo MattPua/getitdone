@@ -1,5 +1,3 @@
-import React from 'react';
-import $ from 'jQuery';
 import Item from './item';
 import NewItem from './newItem';
 import Filter from './filter';
@@ -65,6 +63,28 @@ class List extends React.Component{
     this.setState({categories: newCategories});
   }
 
+  deleteCategory(category){
+    let existingCategories = this.state.categories;
+    let foundCategory = $.grep(existingCategories,function(e){
+      return e.toLowerCase() == category.toLowerCase();
+    });
+    foundCategory = foundCategory[0];
+    existingCategories.splice(existingCategories.indexOf(foundCategory),1);
+    this.setState({categories:existingCategories});
+
+    this.resetCategories(category);
+  }
+
+  // Used to reset any items that have a category that was deleted
+  resetCategories(category){
+    let existingItems = this.state.items;
+    for (let item of existingItems){
+      if (item.category.toLowerCase() == category.toLowerCase())
+        item.category = '';
+    }
+    this.setState({items: existingItems});
+  }
+
   updateActiveCategory(value){
     this.setState({activeCategory: value});
   }
@@ -96,8 +116,10 @@ class List extends React.Component{
     return(
       <div className="list">
         <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
-          updateActiveCategory={this.updateActiveCategory.bind(this)}  />
-        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />
+          updateActiveCategory={this.updateActiveCategory.bind(this)}  
+          deleteCategory={this.deleteCategory.bind(this)}
+        />
+{/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
         <NewItem saveNewItem={this.saveItem.bind(this)}/>
         {items}
       </div>
