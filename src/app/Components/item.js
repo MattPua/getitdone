@@ -1,3 +1,5 @@
+import Button from './button';
+import moment from 'moment';
 
 require('./item.scss');
 
@@ -15,20 +17,20 @@ class Item extends React.Component{
     if (newProps.category != this.state.category)
       this.setState({category: newProps.category});
   }
-  handleDeleteItem(event){
-    this.props.deleteItem(this.props.id);
-  }
-
 
   render(){
+    let date = "" + moment(this.state.deadline).calendar();
+
     return(
       <div className="item">
         <span className="actions">
-          <button className="delete" onClick={this.handleDeleteItem.bind(this)}>X</button>
+          <Button className="btn delete " onClick={this.props.deleteItem}>
+            <span className="glyphicon glyphicon-remove"/>
+          </Button>
         </span>
         <span className="text">{this.state.text}</span>
         <span className="category">{this.state.category}</span>
-        <span className="deadline">{this.state.deadline}</span>
+        <span className="deadline">{date}</span>
         <span>{this.props.id}</span>
       </div>
     );

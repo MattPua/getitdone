@@ -13,9 +13,8 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className="title">
+      <div className="page-header">
         <h2>Get It Done</h2>
-        <hr/>
       </div>
     );
   }

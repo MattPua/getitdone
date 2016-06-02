@@ -1,5 +1,4 @@
-import React from 'react';
-
+import moment from 'moment';
 class NewItem extends  React.Component{
   constructor(props){
     super(props);
@@ -20,10 +19,12 @@ class NewItem extends  React.Component{
 
   handleNewItem(event){
     event.preventDefault();
+    let currentDate = moment().format();
+    console.log(currentDate);
     let item = {
       id: Math.floor(Math.random() * 100),
       text: this.state.text,
-      deadline: Date.now(),
+      deadline: ""+currentDate,
       category: this.state.category
     };
 

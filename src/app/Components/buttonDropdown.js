@@ -1,7 +1,7 @@
 import DropDownItem from './dropDownItem';
 import Button from './Button';
 import 'bootstrap';
-
+import UUID from 'node-uuid';
 class ButtonDropdown extends React.Component{
   render(){
     let items = [];
@@ -14,8 +14,8 @@ class ButtonDropdown extends React.Component{
 
     return(
       <div className="btn-group">
-        <Button className="btn primary">{this.props.activeItem}</Button>
-        <Button className="dropdown-toggle btn primary" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+        <Button key={UUID.v4()} className="btn primary">{this.props.activeItem}</Button>
+        <Button key={UUID.v4()} className="dropdown-toggle btn primary" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
           <span className="caret"></span>
           <span className="sr-only">Toggle Dropdown</span>
         </Button>
