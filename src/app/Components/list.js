@@ -117,7 +117,6 @@ class List extends React.Component{
         <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
-          completeItem={this.editItem.bind(this)}
         />
       );
     }
