@@ -131,6 +131,7 @@ class List extends React.Component{
         <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
           updateActiveCategory={this.updateActiveCategory.bind(this)}  
           deleteCategory={this.deleteCategory.bind(this)}
+          saveNewCategory={this.updateCategoriesList.bind(this)}
         />
 {/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
         <NewItem saveNewItem={this.saveItem.bind(this)}/>

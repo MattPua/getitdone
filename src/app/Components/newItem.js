@@ -20,6 +20,8 @@ class NewItem extends  React.Component{
 
   handleNewItem(event){
     event.preventDefault();
+    if (this.state.text == '') return;
+
     let currentDate = moment().format();
     let item = {
       id: Math.floor(Math.random() * 100),
