@@ -2,6 +2,8 @@ import Item from './item';
 import NewItem from './newItem';
 import Filter from './filter';
 import SortOptions from './sortOptions';
+import UUID from 'node-uuid';
+require('./list.scss');
 class List extends React.Component{
   constructor(props){
     super(props);
@@ -106,6 +108,8 @@ class List extends React.Component{
 
   getItemsToShow(){
     let items = [];
+    if (this.state.items.length == 0) return [];
+
     for(let item of this.state.items){
       // Check if it's the right category of items that we want to display
       if (this.state.activeCategory.toLowerCase() != 'all'){
@@ -120,25 +124,29 @@ class List extends React.Component{
         />
       );
     }
+
     return items;
   }
 
   render(){
     let items = this.getItemsToShow();
-
+    console.log(items);
     return(
       <div className="list row">
-        <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
-          updateActiveCategory={this.updateActiveCategory.bind(this)}  
-          deleteCategory={this.deleteCategory.bind(this)}
-          saveNewCategory={this.updateCategoriesList.bind(this)}
-        />
+        <div className="options-container col-xs-12">
+          <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
+              updateActiveCategory={this.updateActiveCategory.bind(this)}  
+              deleteCategory={this.deleteCategory.bind(this)}
+              saveNewCategory={this.updateCategoriesList.bind(this)}
+            />
 {/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
-        <div className="col-xs-12">
-          <NewItem saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+          <NewItem key={UUID.v4()} saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
         </div>
-        <div className='col-xs-12'>
-        {items}
+        <div className='col-xs-12 item-container'>
+          {"There are " + items.length + " things to do"}
+          <hr/>
+          {items.length > 0 ? items : "Everything's done!"}
+          
         </div>
       </div>
     );
