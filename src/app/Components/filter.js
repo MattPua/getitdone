@@ -27,7 +27,7 @@ class Filter extends React.Component{
     return(
       <div className="filter col-xs-12">
         <span>Filter By Category:</span>
-        <ButtonDropDown key={UUID.v4()} items={this.props.categories} activeItem={this.props.activeCategory} 
+        <ButtonDropDown key={UUID.v4()} items={this.props.categories.sort()} activeItem={this.props.activeCategory} 
           handleOnClick={this.props.updateActiveCategory}/>
         <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />
       </div>

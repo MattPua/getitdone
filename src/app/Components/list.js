@@ -134,7 +134,9 @@ class List extends React.Component{
           saveNewCategory={this.updateCategoriesList.bind(this)}
         />
 {/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
-        <NewItem saveNewItem={this.saveItem.bind(this)}/>
+        <div className="col-xs-12">
+          <NewItem saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+        </div>
         <div className='col-xs-12'>
         {items}
         </div>

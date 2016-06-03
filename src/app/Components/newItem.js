@@ -5,7 +5,7 @@ class NewItem extends  React.Component{
     this.state = {
       text: '',
       deadline: '',
-      category: '',
+      category: this.props.categories[0],
       status: 'incomplete'
     };
   }
@@ -36,11 +36,22 @@ class NewItem extends  React.Component{
   }
 
   render(){
+    let categories = [];
+    for (let index in this.props.categories){
+      categories.push(
+        <option value={this.props.categories[index]}>{this.props.categories[index]}</option>
+        );
+    }
+
     return(
-      <form onSubmit={this.handleNewItem.bind(this)} className='col-xs-12'>
-        <input type="text" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
-        <input type="text" placeholder="Category" value={this.state.category} onChange={this.handleCategoryChange.bind(this)} />
-        <input type="submit" value="Save"/>
+      <form onSubmit={this.handleNewItem.bind(this)} className='form-inline'>
+        <div className="form-group">
+          <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+          <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
+            {categories}
+          </select>
+        </div>
+        <button class="btn" type="submit">Save</button>
       </form>
     );
   }
