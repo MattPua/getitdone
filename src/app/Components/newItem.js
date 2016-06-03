@@ -5,7 +5,8 @@ class NewItem extends  React.Component{
     this.state = {
       text: '',
       deadline: '',
-      category: ''
+      category: '',
+      status: 'incomplete'
     };
   }
 
@@ -20,12 +21,12 @@ class NewItem extends  React.Component{
   handleNewItem(event){
     event.preventDefault();
     let currentDate = moment().format();
-    console.log(currentDate);
     let item = {
       id: Math.floor(Math.random() * 100),
       text: this.state.text,
       deadline: ""+currentDate,
-      category: this.state.category
+      category: this.state.category,
+      status: 'incomplete'
     };
 
     this.props.saveNewItem(item);
@@ -34,7 +35,7 @@ class NewItem extends  React.Component{
 
   render(){
     return(
-      <form onSubmit={this.handleNewItem.bind(this)}>
+      <form onSubmit={this.handleNewItem.bind(this)} className='col-xs-12'>
         <input type="text" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
         <input type="text" placeholder="Category" value={this.state.category} onChange={this.handleCategoryChange.bind(this)} />
         <input type="submit" value="Save"/>

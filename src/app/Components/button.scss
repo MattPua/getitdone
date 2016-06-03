@@ -15,10 +15,17 @@
 }
 
 .btn.delete{
-  padding-left: 2px;
-  padding-right: 2px;
   background-color: $primary-failure;
   color: white;
+}
+
+.btn.complete{
+  background-color: $primary-success;
+  color:white;
+}
+
+.btn.edit{
+  background-color: $primary-warning;
 }
 
 .btn-group{

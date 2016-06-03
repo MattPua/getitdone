@@ -13,8 +13,8 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className="page-header">
-        <h2>Get It Done</h2>
+      <div className="page-header row">
+        <h2 class='col-xs-12'>Get It Done</h2>
       </div>
     );
   }

@@ -1,7 +1,18 @@
 .item {
-  margin: 10px;
+  margin: 10px 0;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.item.complete {
+  text-decoration: line-through;
 }
 
 .item > span {
   margin-right: 10px;
+}
+
+.item .actions {
+  float: right;
 }

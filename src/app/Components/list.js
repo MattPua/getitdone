@@ -15,6 +15,7 @@ class List extends React.Component{
 
   componentDidUpdate(prevProps,prevState){
     window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
+
   }
 
   componentDidMount(){
@@ -50,6 +51,16 @@ class List extends React.Component{
     let newItems = oldItems.concat(item);
     this.setState({items: newItems});
     this.updateCategoriesList(item.category);
+  }
+
+  editItem(item){
+    var existingItems = this.state.items;
+    var foundItem = $.grep(existingItems,function(e){
+      return e.id === item.props.id;
+    });
+    foundItem = foundItem[0];
+    existingItems[existingItems.indexOf(foundItem)] = item.state;
+    this.setState({items: existingItems});
   }
 
   updateCategoriesList(newCategory){
@@ -103,8 +114,11 @@ class List extends React.Component{
       }
 
       items.push(
-        <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id}
-          deleteItem={this.deleteItem.bind(this)}/>
+        <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
+          deleteItem={this.deleteItem.bind(this)}
+          editItem={this.editItem.bind(this)}
+          completeItem={this.editItem.bind(this)}
+        />
       );
     }
     return items;
@@ -114,14 +128,16 @@ class List extends React.Component{
     let items = this.getItemsToShow();
 
     return(
-      <div className="list">
+      <div className="list row">
         <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
           updateActiveCategory={this.updateActiveCategory.bind(this)}  
           deleteCategory={this.deleteCategory.bind(this)}
         />
 {/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
         <NewItem saveNewItem={this.saveItem.bind(this)}/>
+        <div className='col-xs-12'>
         {items}
+        </div>
       </div>
     );
   }

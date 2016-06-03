@@ -10,7 +10,7 @@ class Filter extends React.Component{
   render(){
     let categories = [];
     return(
-      <div className="filter">
+      <div className="filter col-xs-12">
         <span>Filter By</span>
         <ButtonDropDown key={UUID.v4()} items={this.props.categories} activeItem={this.props.activeCategory} 
           handleOnClick={this.props.updateActiveCategory}/>
