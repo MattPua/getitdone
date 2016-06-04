@@ -40,23 +40,23 @@ var config = {
       },
       {
        test: /\.svg$/,
-       loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]' 
+       loader: 'url?limit=65000&mimetype=image/svg+xml&name='+FONTS_DIR+'/[name].[ext]' 
       },
       { 
         test: /\.woff$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' 
+        loader: 'url?limit=65000&mimetype=application/font-woff&name='+FONTS_DIR+'/[name].[ext]' 
       },
       { 
         test: /\.woff2$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]' 
+        loader: 'url?limit=65000&mimetype=application/font-woff2&name='+FONTS_DIR+'/[name].[ext]' 
       },
       { 
         test: /\.[ot]t$/,
-        loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]' 
+        loader: 'url?limit=65000&mimetype=application/octet-stream&name='+FONTS_DIR+'/[name].[ext]' 
       },
       { 
         test: /\.eot$/,
-        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]'
+        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name='+FONTS_DIR+'/[name].[ext]'
       }
 /*      {
         test: /\.woff$/,
