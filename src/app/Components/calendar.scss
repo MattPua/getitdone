@@ -21,13 +21,20 @@
 }
 
 .day-container .day-name{
-  width: 60px;
+  width: 13.6%;
   text-align: center;
-}
-
-.day-container .day-names{
-  display: flex;
-  justify-content: space-between;
+  display:inline-block;
   padding: 10px 0;
 }
 
+.day-container .day-names{
+  padding: 10px 0;
+  background-color: white;
+}
+
+.day-container .day{
+  text-align: center;
+  display:inline-block;
+  width: 13.6%;
+  padding: 10px 0;
+}

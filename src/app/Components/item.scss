@@ -1,3 +1,4 @@
+
 .item {
   margin: 10px 0;
   border: 1px solid black;
@@ -17,3 +18,8 @@
   float: right;
 }
 
+.item form {
+  @media (min-width: 768px){
+    display: inline-block;
+  }
+}

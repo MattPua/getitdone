@@ -13,14 +13,27 @@ class Calendar extends React.Component{
   getDayNames(){
     let dayNames = [];
     for(let day of this.state.days)
-      dayNames.push(<div className="day-name">{day}</div>);
+      dayNames.push(<th className="day-name">{day}</th>);
 
     return dayNames;
   }
 
+  getDays(){
+    let days = [ [],[],[],[],[] ];
+    for (let i =0;i< 5;i ++){
+      for (let j = 0; j < 7;j++){
+        days[i].push(
+          <td className="day">{i}{j}</td>
+        );
+      }
+    }
+
+    return days;
+  }
+
   render(){
     let dayNames = this.getDayNames()
-
+    let days = this.getDays();
     return(
       <div className={"calendar-container " +this.props.className} >
         <div className="month-year-container col-xs-12">
@@ -29,18 +42,16 @@ class Calendar extends React.Component{
             <div>{this.state.date.format("YYYY")}</div>
           </div>
         </div>
-        <div className="day-container col-xs-12">
-          <div className="day-names">
+        <table className="day-container col-xs-12">
+          <tr className="day-names">
             {dayNames}
-          </div>
-          <div className="days col-xs-12">
-            <div className="week row">{}</div>
-            <div className="week row">{}</div>
-            <div className="week row">{}</div>
-            <div className="week row">{}</div>
-            <div className="week row">{}</div>
-          </div>
-        </div>
+          </tr>
+          <tr className="week row">{days[0]}</tr>
+          <tr className="week row">{days[1]}</tr>
+          <tr className="week row">{days[2]}</tr>
+          <tr className="week row">{days[3]}</tr>
+          <tr className="week row">{days[4]}</tr>
+        </table>
       </div>
     );
   }
