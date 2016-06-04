@@ -19,31 +19,46 @@ class Calendar extends React.Component{
   }
 
   getDays(){
+    // TODO: Looks pretty ugly
     let days = [ [],[],[],[],[] ];
-    let cloneDate = Moment(this.state.date);
-    let startDate = cloneDate.startOf('month').format('ddd');
-    let numDays = cloneDate.endOf('month').date();
-    let currentDay = 1;
+    let todaysDate = Moment();
+    let startDate = Moment(this.state.date).startOf('month');
+    let numDays = Moment(this.state.date).endOf('month').date();
     let beginCounting = false;
-    let value = '';
     for (let i =0;i< 5;i ++){
       for (let j = 0; j < 7;j++){
-        if (!beginCounting && this.state.days[j].toLowerCase() == startDate.toLowerCase()){
-          value = currentDay++;
+        let className = "";
+        let value = '';
+        if (startDate.isAfter(Moment(this.state.date).endOf('month'))) 
+          break;        
+        if (startDate.isSame(todaysDate,'day') ) className="today";
+        if (!beginCounting && j == startDate.day())
           beginCounting = true;
-        }
-        else if (beginCounting)
-          value=currentDay++;
 
-        if (numDays < currentDay -1) value =''; 
+        if (beginCounting){
+          value=startDate.date();
+          startDate.add(1,'day');
+        }
+        else value = '';
 
         days[i].push(
-          <td className="day">{value}</td>
+          <td className={"day " + className}>{value}</td>
         );
       }
+      if (startDate.isAfter(Moment(this.state.date).endOf('month'))) break;
     }
 
     return days;
+  }
+
+  nextMonth(){
+    let date = this.state.date.add(1,'month');
+    this.setState({date: date});
+  }
+
+  prevMonth(){
+    let date = this.state.date.subtract(1,'month');
+    this.setState({date: date});
   }
 
   render(){
@@ -52,12 +67,16 @@ class Calendar extends React.Component{
     return(
       <div className={"calendar-container " +this.props.className} >
         <div className="month-year-container col-xs-12">
-          <span className="prev">{'<'}</span>
+          <div className="month-action">
+            <span className="prev" onClick={this.prevMonth.bind(this)}>{'<'}</span>
+          </div>
           <div className="month-year">
             <div>{this.state.date.format("MMMM")}</div>
             <div>{this.state.date.format("YYYY")}</div>
           </div>
-          <span className="next">{'>'}</span>
+          <div className="month-action">
+            <span className="next" onClick={this.nextMonth.bind(this)}>{'>'}</span>
+          </div>
         </div>
         <table className="day-container col-xs-12">
           <thead className="day-names">

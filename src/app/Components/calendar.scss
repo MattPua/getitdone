@@ -16,12 +16,15 @@
 }
 
 .month-year-container span {
-  width: 25%;
-  display:inline-block;
   font-size: 20px;
 }
 
-.month-year-container .next {
+.month-year-container .month-action{
+  width: 25%;
+  display:inline-block;
+}
+
+.month-year-container .month-action:nth-child(3) {
   text-align: right;
 }
 
@@ -46,4 +49,9 @@
   display:inline-block;
   width: 13.6%;
   padding: 10px 0;
+}
+
+.day-container .today{
+  background-color: $primary-warning;
+  font-weight: bold;
 }
