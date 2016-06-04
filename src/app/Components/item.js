@@ -7,6 +7,7 @@ class Item extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      id: this.props.id,
       text: this.props.text,
       deadline: this.props.deadline,
       category: this.props.category,

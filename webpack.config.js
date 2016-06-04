@@ -39,38 +39,25 @@ var config = {
         loader: 'json'
       },
       {
-       test: /\.svg$/,
-       loader: 'url?limit=65000&mimetype=image/svg+xml&name='+FONTS_DIR+'/[name].[ext]' 
-      },
-      { 
-        test: /\.woff$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff&name='+FONTS_DIR+'/[name].[ext]' 
-      },
-      { 
-        test: /\.woff2$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff2&name='+FONTS_DIR+'/[name].[ext]' 
-      },
-      { 
-        test: /\.[ot]t$/,
-        loader: 'url?limit=65000&mimetype=application/octet-stream&name='+FONTS_DIR+'/[name].[ext]' 
-      },
-      { 
-        test: /\.eot$/,
-        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name='+FONTS_DIR+'/[name].[ext]'
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff"
+      }, 
+      {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff"
+      }, 
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/octet-stream"
+      }, 
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file"
+      }, 
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=image/svg+xml"
       }
-/*      {
-        test: /\.woff$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff&name=[path][name].[ext]"
-      }, 
-      {
-        test: /\.woff2$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff2&name=[path][name].[ext]"
-      }, 
-      {
-        test: /\.(eot|ttf|svg|gif|png)$/,
-        loader: "file-loader"
-      }*/
-
     ]
   },
   plugins: [

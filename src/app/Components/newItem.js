@@ -1,8 +1,10 @@
 import moment from 'moment';
+import UUID from 'node-uuid';
 class NewItem extends  React.Component{
   constructor(props){
     super(props);
     this.state = {
+      id: UUID.v4(),
       text: '',
       deadline: '',
       category: this.props.categories[0],
@@ -24,7 +26,7 @@ class NewItem extends  React.Component{
 
     let currentDate = moment().format();
     let item = {
-      id: Math.floor(Math.random() * 100),
+      id: this.state.id,
       text: this.state.text,
       deadline: ""+currentDate,
       category: this.state.category,
