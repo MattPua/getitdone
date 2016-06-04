@@ -30,7 +30,8 @@ class Item extends React.Component{
       this.props.editItem(this);
   }
 
-  toggleEditMode(){
+  toggleEditMode(event){
+    event.preventDefault();
     this.setState({editMode: !this.state.editMode});
   }
 
@@ -62,12 +63,25 @@ class Item extends React.Component{
   getDetailSection(){
     let date = "" + moment(this.state.deadline).calendar();
     let returnValue = [];
-
+    let categories = [];
+    for (let index in this.props.categories){
+      categories.push(
+        <option value={this.props.categories[index]}>{this.props.categories[index]}</option>
+        );
+    }
     if (this.state.editMode)
       returnValue = [
-        <input type="text" className="text" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>,
-        <input type="text" className="category" value={this.state.category} onChange={this.handleCategoryChange.bind(this)}/>,
-        <span className="deadline">{date}</span>
+        <form onSubmit={this.toggleEditMode.bind(this)} className="form-inline">
+          <div className="form-group">
+            <input type="text" className="text form-control" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+          </div>
+          <div className="form-group">
+          <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
+            {categories}
+          </select>
+          </div>
+          <span className="deadline">{date}</span>
+        </form>
       ];
     else
       returnValue = [
@@ -80,6 +94,7 @@ class Item extends React.Component{
 
   render(){
     let details = this.getDetailSection();
+
     return(
       <div className={"item col-xs-12 " + this.state.status}>
         {details}

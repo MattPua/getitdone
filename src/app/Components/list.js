@@ -122,6 +122,7 @@ class List extends React.Component{
 
       items.push(
         <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
+          categories={this.state.categories}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
         />
