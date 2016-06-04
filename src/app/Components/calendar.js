@@ -20,17 +20,18 @@ class Calendar extends React.Component{
 
   getDays(){
     // TODO: Looks pretty ugly
-    let days = [ [],[],[],[],[] ];
+    let days = [ [],[],[],[],[],[]];
     let todaysDate = Moment();
     let startDate = Moment(this.state.date).startOf('month');
     let numDays = Moment(this.state.date).endOf('month').date();
     let beginCounting = false;
-    for (let i =0;i< 5;i ++){
+    for (let i =0;i< 6;i ++){
       for (let j = 0; j < 7;j++){
         let className = "";
         let value = '';
-        if (startDate.isAfter(Moment(this.state.date).endOf('month'))) 
+        if (startDate.isAfter(Moment(this.state.date).endOf('month'))) {
           break;        
+        }
         if (startDate.isSame(todaysDate,'day') ) className="today";
         if (!beginCounting && j == startDate.day())
           beginCounting = true;
@@ -52,12 +53,12 @@ class Calendar extends React.Component{
   }
 
   nextMonth(){
-    let date = this.state.date.add(1,'month');
+    let date = this.state.date.add(1,'month').startOf('month');
     this.setState({date: date});
   }
 
   prevMonth(){
-    let date = this.state.date.subtract(1,'month');
+    let date = this.state.date.subtract(1,'month').startOf('month');
     this.setState({date: date});
   }
 
@@ -68,14 +69,14 @@ class Calendar extends React.Component{
       <div className={"calendar-container " +this.props.className} >
         <div className="month-year-container col-xs-12">
           <div className="month-action">
-            <span className="prev" onClick={this.prevMonth.bind(this)}>{'<'}</span>
+            <span className="prev action" onClick={this.prevMonth.bind(this)}>{'<'}</span>
           </div>
           <div className="month-year">
             <div>{this.state.date.format("MMMM")}</div>
             <div>{this.state.date.format("YYYY")}</div>
           </div>
           <div className="month-action">
-            <span className="next" onClick={this.nextMonth.bind(this)}>{'>'}</span>
+            <span className="next action" onClick={this.nextMonth.bind(this)}>{'>'}</span>
           </div>
         </div>
         <table className="day-container col-xs-12">
@@ -90,6 +91,7 @@ class Calendar extends React.Component{
             <tr className="week row">{days[2]}</tr>
             <tr className="week row">{days[3]}</tr>
             <tr className="week row">{days[4]}</tr>
+            <tr className="week row">{days[5]}</tr>
           </tbody>
         </table>
       </div>

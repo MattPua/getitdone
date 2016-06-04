@@ -28,6 +28,11 @@
   text-align: right;
 }
 
+.month-year-container .month-action .action:hover{
+  color: black;
+  cursor:pointer;
+}
+
 .day-container{
   background-color: #DDDDDD;
 }
