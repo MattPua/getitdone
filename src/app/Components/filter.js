@@ -31,7 +31,9 @@ class Filter extends React.Component{
           items={this.props.categories.sort()} 
           activeItem={this.props.activeCategory} 
           handleOnClick={this.props.updateActiveCategory}/>
-        <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />
+        <form TODO>
+          <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />
+        </form>
       </div>
     );
   }

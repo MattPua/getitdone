@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom';
 import Header from './Components/header';
 import List from './Components/list';
-
-import './Components/general.scss';
+import Calendar from './Components/calendar';
+import './other/general.scss';
+import './other/font.scss';
 
 class App extends React.Component{
   constructor(props){
@@ -16,8 +17,11 @@ class App extends React.Component{
   render(){
     return (
       <div className="container">
-        <Header/>
-        <List/>
+        <div className="row">
+          <Header className="col-xs-12"/>
+          <List className="col-xs-12"/>
+          <Calendar className="col-xs-12"/>
+        </div>
       </div>
     );
   }

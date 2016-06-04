@@ -2,6 +2,7 @@ import Item from './item';
 import NewItem from './newItem';
 import Filter from './filter';
 import SortOptions from './sortOptions';
+
 import UUID from 'node-uuid';
 require('./list.scss');
 class List extends React.Component{
@@ -28,6 +29,8 @@ class List extends React.Component{
       window.localStorage.setItem("GetItDone",
         JSON.stringify(this.state)
       );
+
+    // TODO: Set timeout to refresh
   }
 
   refreshItems(){
@@ -132,7 +135,7 @@ class List extends React.Component{
     let items = this.getItemsToShow();
     console.log(items);
     return(
-      <div className="list row">
+      <div className={"list " + this.props.className}>
         <div className="options-container col-xs-12">
           <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
               updateActiveCategory={this.updateActiveCategory.bind(this)}  

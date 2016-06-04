@@ -1,5 +1,5 @@
-require('./button.scss');
-require('./colours.scss');
+import './button.scss';
+import '../other/colours.scss';
 
 class Button extends React.Component{
   constructor(props){

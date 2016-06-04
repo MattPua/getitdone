@@ -13,7 +13,7 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className="page-header row">
+      <div className={"page-header " + this.props.className}>
         <h2 class='col-xs-12'>Get It Done</h2>
       </div>
     );

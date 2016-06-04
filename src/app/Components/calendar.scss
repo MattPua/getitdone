@@ -1,0 +1,33 @@
+@import '../other/colours';
+
+.calendar-container {
+  border: 1px solid black;
+}
+
+.month-year-container{
+  border: 1px solid red;
+  background-color: $primary;
+  color: white;
+}
+
+.month-year-container .month-year{
+  text-align: center;
+  padding: 40px 0;
+}
+
+.day-container{
+  border: 1px solid blue;
+  background-color: #DDDDDD;
+}
+
+.day-container .day-name{
+  width: 60px;
+  text-align: center;
+}
+
+.day-container .day-names{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
