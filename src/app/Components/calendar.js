@@ -20,10 +20,25 @@ class Calendar extends React.Component{
 
   getDays(){
     let days = [ [],[],[],[],[] ];
+    let cloneDate = Moment(this.state.date);
+    let startDate = cloneDate.startOf('month').format('ddd');
+    let numDays = cloneDate.endOf('month').date();
+    let currentDay = 1;
+    let beginCounting = false;
+    let value = '';
     for (let i =0;i< 5;i ++){
       for (let j = 0; j < 7;j++){
+        if (!beginCounting && this.state.days[j].toLowerCase() == startDate.toLowerCase()){
+          value = currentDay++;
+          beginCounting = true;
+        }
+        else if (beginCounting)
+          value=currentDay++;
+
+        if (numDays < currentDay -1) value =''; 
+
         days[i].push(
-          <td className="day">{i}{j}</td>
+          <td className="day">{value}</td>
         );
       }
     }
@@ -37,20 +52,26 @@ class Calendar extends React.Component{
     return(
       <div className={"calendar-container " +this.props.className} >
         <div className="month-year-container col-xs-12">
+          <span className="prev">{'<'}</span>
           <div className="month-year">
             <div>{this.state.date.format("MMMM")}</div>
             <div>{this.state.date.format("YYYY")}</div>
           </div>
+          <span className="next">{'>'}</span>
         </div>
         <table className="day-container col-xs-12">
-          <tr className="day-names">
-            {dayNames}
-          </tr>
-          <tr className="week row">{days[0]}</tr>
-          <tr className="week row">{days[1]}</tr>
-          <tr className="week row">{days[2]}</tr>
-          <tr className="week row">{days[3]}</tr>
-          <tr className="week row">{days[4]}</tr>
+          <thead className="day-names">
+            <tr>
+              {dayNames}
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="week row">{days[0]}</tr>
+            <tr className="week row">{days[1]}</tr>
+            <tr className="week row">{days[2]}</tr>
+            <tr className="week row">{days[3]}</tr>
+            <tr className="week row">{days[4]}</tr>
+          </tbody>
         </table>
       </div>
     );
