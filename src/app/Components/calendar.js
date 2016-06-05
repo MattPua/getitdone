@@ -5,7 +5,6 @@ class Calendar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      view: {default: 'month'},
       date: Moment(),
       days: ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat']
     }
@@ -16,6 +15,15 @@ class Calendar extends React.Component{
       dayNames.push(<th className="day-name">{day}</th>);
 
     return dayNames;
+  }
+
+  getItemsDueOnDay(day,items){
+    let count = 0;
+    for (let item of items){
+      if (Moment(item.deadline).isSame(day,'day'))
+        count++;
+    }
+    return count;
   }
 
   getDays(){
@@ -29,6 +37,7 @@ class Calendar extends React.Component{
       for (let j = 0; j < 7;j++){
         let className = "";
         let value = '';
+        let numDue = 0;
         if (startDate.isAfter(Moment(this.state.date).endOf('month'))) {
           break;        
         }
@@ -38,12 +47,14 @@ class Calendar extends React.Component{
 
         if (beginCounting){
           value=startDate.date();
+          numDue = this.getItemsDueOnDay(startDate,this.props.items);
           startDate.add(1,'day');
         }
         else value = '';
-
         days[i].push(
-          <td className={"day " + className}>{value}</td>
+          <td className={"day " + className}>{value}
+            <span className={numDue>0 ? "count" : ''}>{numDue>0 ? numDue: ''}</span>
+          </td>
         );
       }
       if (startDate.isAfter(Moment(this.state.date).endOf('month'))) break;

@@ -9,19 +9,19 @@ class List extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      items: [],
-      categories: ['All'],
+/*      items: [],
+      categories: ['All'],*/
       activeCategory: 'all',
       activeOption: 'deadline'
     };
   }
 
-  componentDidUpdate(prevProps,prevState){
+/*  componentDidUpdate(prevProps,prevState){
     window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
 
-  }
+  }*/
 
-  componentDidMount(){
+/*  componentDidMount(){
     // Check if LocalStorage "GetItDone" exists, if not , create
     if (window.localStorage.getItem("GetItDone") != null)
       this.refreshItems();
@@ -99,7 +99,7 @@ class List extends React.Component{
         item.category = '';
     }
     this.setState({items: existingItems});
-  }
+  }*/
 
   updateActiveCategory(value){
     this.setState({activeCategory: value});
@@ -111,9 +111,9 @@ class List extends React.Component{
 
   getItemsToShow(){
     let items = [];
-    if (this.state.items.length == 0) return [];
+    if (this.props.items.length == 0) return [];
 
-    for(let item of this.state.items){
+    for(let item of this.props.items){
       // Check if it's the right category of items that we want to display
       if (this.state.activeCategory.toLowerCase() != 'all'){
         if (item.category.toLowerCase() != this.state.activeCategory.toLowerCase())
@@ -123,8 +123,8 @@ class List extends React.Component{
       items.push(
         <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
           categories={this.state.categories}
-          deleteItem={this.deleteItem.bind(this)}
-          editItem={this.editItem.bind(this)}
+          deleteItem={this.props.deleteItem}
+          editItem={this.props.editItem}
         />
       );
     }
@@ -134,17 +134,16 @@ class List extends React.Component{
 
   render(){
     let items = this.getItemsToShow();
-    console.log(items);
     return(
       <div className={"list " + this.props.className}>
         <div className="options-container col-xs-12">
-          <Filter categories={this.state.categories} activeCategory={this.state.activeCategory}
+          <Filter categories={this.props.categories} activeCategory={this.state.activeCategory}
               updateActiveCategory={this.updateActiveCategory.bind(this)}  
-              deleteCategory={this.deleteCategory.bind(this)}
-              saveNewCategory={this.updateCategoriesList.bind(this)}
+              deleteCategory={this.props.deleteCategory}
+              saveNewCategory={this.props.updateCategoriesList}
             />
 {/*        <SortOptions activeOption={this.state.activeOption} sortOptions={this.props.sortOptions} updateActiveOption={this.updateActiveOption.bind(this)} />*/}
-          <NewItem key={UUID.v4()} saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+          <NewItem key={UUID.v4()} saveNewItem={this.props.saveItem} categories={this.props.categories}/>
         </div>
         <div className='col-xs-12 item-container'>
           {"There are " + items.length + " things to do"}
@@ -156,7 +155,8 @@ class List extends React.Component{
     );
   }
 }
+List.propTypes = {};
 List.defaultProps = {
   sortOptions: ['Deadline','Text','Category']
-}
+};
 export default List;

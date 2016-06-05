@@ -54,6 +54,20 @@
   display:inline-block;
   width: 13.6%;
   padding: 10px 0;
+  position: relative;
+}
+
+.day-container .day .count{
+  position: absolute;
+  right: 25px;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-family: Helvetica;
+  font-weight: normal;
+  font-size: 10px;
+  top: 5px;
 }
 
 .day-container .today{
