@@ -1,12 +1,14 @@
 import moment from 'moment';
 import UUID from 'node-uuid';
+import 'eonasdan-bootstrap-datetimepicker';
+
+
 class NewItem extends  React.Component{
   constructor(props){
     super(props);
     this.state = {
       id: UUID.v4(),
       text: '',
-      deadline: '',
       category: this.props.categories[0],
       status: 'incomplete'
     };
@@ -28,13 +30,17 @@ class NewItem extends  React.Component{
     let item = {
       id: this.state.id,
       text: this.state.text,
-      deadline: ""+currentDate,
+      deadline: moment(document.querySelector('input.deadline').value),
       category: this.state.category,
       status: 'incomplete'
     };
 
     this.props.saveNewItem(item);
     this.setState({text: '',category: ''});
+  }
+
+  componentDidMount(){
+    $("#datetimepicker").datetimepicker();
   }
 
   render(){
@@ -54,6 +60,14 @@ class NewItem extends  React.Component{
           <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
             {categories}
           </select>
+        </div>
+        <div className="form-group">
+          <div className="input-group date" id="datetimepicker">
+            <input type="text" className="form-control deadline"  readonly="readonly" />
+            <span className="input-group-addon">
+              <span className="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
         </div>
         <button className="btn" type="submit">Save</button>
       </form>

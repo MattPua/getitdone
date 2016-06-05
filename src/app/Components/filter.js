@@ -1,6 +1,5 @@
 import UUID from 'node-uuid';
 import ButtonDropDown from './buttonDropDown';
-import ButtonAddons from './buttonAddons';
 
 require('./filter.scss');
 
@@ -47,8 +46,6 @@ class Filter extends React.Component{
               <button className="btn" type="button" onClick={this.handleOnClick.bind(this)}>New Category...</button>
             </span>
           </div>
-
-{/*          <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />*/}
         </form>
       </div>
     );

@@ -68,7 +68,13 @@ var config = {
       React: 'react'
     })
     // new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  // Some modules might use their own jquery. Use this to resolve other jquery into mine
+  resolve: {
+    alias: {
+      'jquery': path.join(__dirname, 'node_modules/jquery/dist/jquery'),
+    }
+  }
 };
 
 module.exports = config;
