@@ -10,10 +10,13 @@ Add images to tasks
 Figure out how to use WebPack-Bootstrap
 Add massive reset button
 recurring items
-Change colour if its due
 
 switch to currentDate calendar
 set propTypes and defaultProps for everything
 Switch to agenda view
 
 error handling
+Looks like the positioning of count in the bubbles in calendar are slightly off for some
+
+Add icon for total count of items for month in the calendar
+subtasks

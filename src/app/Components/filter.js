@@ -1,6 +1,6 @@
 import UUID from 'node-uuid';
 import ButtonDropDown from './buttonDropDown';
-
+import Helper from '../other/helper';
 require('./filter.scss');
 
 class Filter extends React.Component{
@@ -54,5 +54,21 @@ class Filter extends React.Component{
   }
 }
 
+Filter.propTypes = {
+  categories           : React.PropTypes.array.isRequired,
+  activeCategory       : React.PropTypes.string.isRequired,
+  className            : React.PropTypes.string,
+  updateActiveCategory : React.PropTypes.func.isRequired,
+  deleteCategory       : React.PropTypes.func.isRequired,
+  saveNewCategory      : React.PropTypes.func.isRequired
+};
+Filter.defaultProps = {
+  categories           : [],
+  activeCategory       : 'All',
+  className            : '',
+  updateActiveCategory : Helper.notInitialized,
+  deleteCategory       : Helper.notInitialized,
+  saveNewCategory      : Helper.notInitialized
+};
 
 export default Filter;

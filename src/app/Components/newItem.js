@@ -2,6 +2,7 @@ import moment from 'moment';
 import UUID from 'node-uuid';
 import 'eonasdan-bootstrap-datetimepicker';
 import './newItem.scss';
+import Helper from './../other/Helper';
 
 class NewItem extends  React.Component{
   constructor(props){
@@ -80,7 +81,15 @@ class NewItem extends  React.Component{
   }
 }
 
-NewItem.defaultProps={};
-NewItem.propTypes={};
+NewItem.defaultProps={
+  className   : '',
+  categories  : [],
+  saveNewItem : Helper.notInitialized
+};
+NewItem.propTypes={
+  className   : React.PropTypes.string,
+  categories  : React.PropTypes.array.isRequired,
+  saveNewItem : React.PropTypes.func.isRequired
+};
 
 export default NewItem;

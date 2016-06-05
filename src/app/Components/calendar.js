@@ -113,10 +113,15 @@ class Calendar extends React.Component{
       </div>
     );
   }
-
-
-
-
 }
+
+Calendar.defaultProps = {
+  items: [],
+  className: ''
+};
+Calendar.propTypes ={
+  items: React.PropTypes.array.isRequired,
+  className: React.PropTypes.string
+};
 
 export default Calendar;

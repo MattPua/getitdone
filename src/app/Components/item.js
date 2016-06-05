@@ -1,6 +1,6 @@
 import moment from 'moment';
 import 'eonasdan-bootstrap-datetimepicker';
-
+import Helper from '../other/Helper';
 require('./item.scss');
 
 class Item extends React.Component{
@@ -139,5 +139,25 @@ class Item extends React.Component{
     );
   }
 }
+
+Item.defaultProps = {
+  id         : null,
+  text       : '',
+  deadline   : null,
+  status     : '',
+  categories : [],
+  deleteItem : Helper.notInitialized,
+  editItem   : Helper.notInitialized
+};
+Item.propTypes = {
+  id         : React.PropTypes.string.isRequired,
+  text       : React.PropTypes.string.isRequired,
+  deadline   : React.PropTypes.string.isRequired,
+  status     : React.PropTypes.string.isRequired,
+  categories : React.PropTypes.array.isRequired,
+  deleteItem : React.PropTypes.func.isRequired,
+  editItem   : React.PropTypes.func.isRequired
+};
+
 
 export default Item;
