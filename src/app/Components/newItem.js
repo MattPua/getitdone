@@ -55,10 +55,13 @@ class NewItem extends  React.Component{
             {categories}
           </select>
         </div>
-        <button class="btn" type="submit">Save</button>
+        <button className="btn" type="submit">Save</button>
       </form>
     );
   }
 }
+
+NewItem.defaultProps={};
+NewItem.propTypes={};
 
 export default NewItem;

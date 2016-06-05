@@ -7,18 +7,28 @@ require('./filter.scss');
 class Filter extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      newCategory: ''
+    };
   }
 
-  handleOnClick(value){
+  onChange(event){
+    this.setState({newCategory: event.target.value});
+  }
+
+  handleOnClick(){
+    var newCategory = this.state.newCategory;
     // Check if value belongs to existing category
     let foundCategory = $.grep(this.props.categories,function(e){
-      return value.toLowerCase() == e.toLowerCase();
+      return newCategory.toLowerCase() == e.toLowerCase();
     });
 
     // TODO: ALERT MESSAGE
     if (foundCategory.length > 0) return;
 
-    this.props.saveNewCategory(value);
+    this.props.saveNewCategory(newCategory);
+
+    this.setState({newCategory: ''});
   }
 
   render(){
@@ -31,7 +41,14 @@ class Filter extends React.Component{
           activeItem={this.props.activeCategory} 
           handleOnClick={this.props.updateActiveCategory}/>
         <form TODO>
-          <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />
+          <div className="input-group">
+            <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
+            <span className="input-group-btn">
+              <button className="btn" type="button" onClick={this.handleOnClick.bind(this)}>New Category...</button>
+            </span>
+          </div>
+
+{/*          <ButtonAddons text="New Category" placeholder="Category..." onClick={this.handleOnClick.bind(this)} />*/}
         </form>
       </div>
     );
