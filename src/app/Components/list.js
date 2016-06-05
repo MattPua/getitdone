@@ -2,104 +2,17 @@ import Item from './item';
 import NewItem from './newItem';
 import Filter from './filter';
 import SortOptions from './sortOptions';
-
+import Helper from '../other/helper';
 import UUID from 'node-uuid';
 require('./list.scss');
 class List extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-/*      items: [],
-      categories: ['All'],*/
       activeCategory: 'all',
       activeOption: 'deadline'
     };
   }
-
-/*  componentDidUpdate(prevProps,prevState){
-    window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
-
-  }*/
-
-/*  componentDidMount(){
-    // Check if LocalStorage "GetItDone" exists, if not , create
-    if (window.localStorage.getItem("GetItDone") != null)
-      this.refreshItems();
-    else
-      window.localStorage.setItem("GetItDone",
-        JSON.stringify(this.state)
-      );
-
-    // TODO: Set timeout to refresh
-  }
-
-  refreshItems(){
-    let localStorage = JSON.parse(window.localStorage.getItem("GetItDone"));
-
-    // TODO: Loop this over elements names
-    this.setState({items:  localStorage.items, categories: localStorage.categories });
-
-  }
-
-  deleteItem(id){
-    var existingItems = this.state.items;
-    var foundItem = $.grep(existingItems,function(e){
-      return e.id === id;
-    });
-    foundItem = foundItem[0];
-    existingItems.splice(existingItems.indexOf(foundItem),1);
-    this.setState({items:existingItems});
-  }
-
-  saveItem(item){
-    let oldItems = this.state.items.length > 0 ? this.state.items.slice() : [];
-    let newItems = oldItems.concat(item);
-    this.setState({items: newItems});
-    this.updateCategoriesList(item.category);
-  }
-
-  editItem(item){
-    var existingItems = this.state.items;
-    var foundItem = $.grep(existingItems,function(e){
-      return e.id === item.props.id;
-    });
-    foundItem = foundItem[0];
-    existingItems[existingItems.indexOf(foundItem)] = item.state;
-    this.setState({items: existingItems});
-  }
-
-  updateCategoriesList(newCategory){
-    if (newCategory == '') return;
-
-    let oldCategories = this.state.categories;
-    for(let category of oldCategories){
-      if (newCategory.toLowerCase() == category.toLowerCase()) return;
-    }
-    let newCategories = oldCategories.concat(newCategory);
-    this.setState({categories: newCategories});
-  }
-
-  deleteCategory(category){
-    let existingCategories = this.state.categories;
-    let foundCategory = $.grep(existingCategories,function(e){
-      return e.toLowerCase() == category.toLowerCase();
-    });
-    foundCategory = foundCategory[0];
-    existingCategories.splice(existingCategories.indexOf(foundCategory),1);
-    this.setState({categories:existingCategories});
-
-    this.resetCategories(category);
-  }
-
-  // Used to reset any items that have a category that was deleted
-  resetCategories(category){
-    let existingItems = this.state.items;
-    for (let item of existingItems){
-      if (item.category.toLowerCase() == category.toLowerCase())
-        item.category = '';
-    }
-    this.setState({items: existingItems});
-  }*/
 
   updateActiveCategory(value){
     this.setState({activeCategory: value});
@@ -155,8 +68,26 @@ class List extends React.Component{
     );
   }
 }
-List.propTypes = {};
+List.propTypes = {
+  sortOptions          : React.PropTypes.array,
+  items                : React.PropTypes.array.isRequired,
+  categories           : React.PropTypes.array.isRequired,
+  deleteItem           : React.PropTypes.func.isRequired,
+  editItem             : React.PropTypes.func.isRequired,
+  saveItem             : React.PropTypes.func.isRequired,
+  updateCategoriesList : React.PropTypes.func.isRequired,
+  deleteCategory       : React.PropTypes.func.isRequired,
+  className            : React.PropTypes.string,
+};
 List.defaultProps = {
-  sortOptions: ['Deadline','Text','Category']
+  sortOptions          : ['Deadline','Text','Category'],
+  items                : [],
+  categories           : ['All'],
+  deleteItem           : Helper.notInitialized,
+  editItem             : Helper.notInitialized,
+  saveItem             : Helper.notInitialized,
+  updateCategoriesList : Helper.notInitialized,
+  deleteCategory       : Helper.notInitialized,
+  className            : ''
 };
 export default List;
