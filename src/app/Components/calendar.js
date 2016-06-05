@@ -41,7 +41,12 @@ class Calendar extends React.Component{
         if (startDate.isAfter(Moment(this.state.date).endOf('month'))) {
           break;        
         }
-        if (startDate.isSame(todaysDate,'day') ) className="today";
+        // TODO: Maybe make all this className stuff into a function
+        if (startDate.isSame(todaysDate,'day') ) className+=" today";
+        else if (startDate.isBefore(todaysDate,'day'))
+          className+= " past-due"
+        else if (startDate.isBetween(todaysDate,Moment().add(3,'days')))
+          className+=" almost-due"
         if (!beginCounting && j == startDate.day())
           beginCounting = true;
 

@@ -24,9 +24,11 @@ class Item extends React.Component{
   }
 
   componentDidUpdate(prevProps,prevState){
+    //TODO: Maybe just compare states?
     if (prevState.status != this.state.status
       || prevState.text != this.state.text 
-      || prevState.category != this.state.category)
+      || prevState.category != this.state.category
+      || prevState.deadline!=this.state.deadline)
       this.props.editItem(this);
 
     //TODO: Make it possible to only reactivate this one
@@ -53,7 +55,6 @@ class Item extends React.Component{
   }
 
   handleDateChange(event){
-    console.log(event);
   }
 
   completeItem(event){

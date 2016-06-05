@@ -72,7 +72,7 @@ class NewItem extends  React.Component{
                 </span>
               </div>
             </div>
-            <button className="btn" type="submit">Save</button>
+            <button className="btn primary" type="submit">Save</button>
           </form>
         </div>
       </div>

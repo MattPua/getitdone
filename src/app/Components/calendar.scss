@@ -69,6 +69,14 @@
   font-size: 10px;
   top: 2px;
 }
+.day-container .day.past-due .count{
+  background-color: $primary-failure;
+  color: white;
+}
+
+.day-container .day.almost-due .count{
+  background-color: $primary-warning;
+}
 
 .day-container .today{
   background-color: $primary-warning;
