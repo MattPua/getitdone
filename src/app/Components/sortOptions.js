@@ -1,8 +1,6 @@
 import React from 'react';
 import UUID from 'node-uuid';
 
-import Button from './button';
-
 class SortOptions extends React.Component{
   constructor(props){
     super(props);
@@ -22,7 +20,7 @@ class SortOptions extends React.Component{
       let className = "";
       if (option.toLowerCase() == this.props.activeOption.toLowerCase()) className="active";
       options.push(
-        <Button key={UUID.v4()} className={className} text={option} value={option} handleOnClick={this.changeActiveOption.bind(this)}/>
+        <button type="button" className={className} text={option} value={option} handleOnClick={this.changeActiveOption.bind(this)}/>
         );
     }
 

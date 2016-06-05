@@ -27,5 +27,7 @@ class ButtonAddons extends React.Component{
     );
   }
 }
+ButtonAddons.defaultProps = {};
+ButtonAddons.propTypes = {};
 
 export default ButtonAddons;

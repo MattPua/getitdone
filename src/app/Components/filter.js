@@ -1,6 +1,5 @@
 import UUID from 'node-uuid';
 import ButtonDropDown from './buttonDropDown';
-import Button from './button';
 import ButtonAddons from './buttonAddons';
 
 require('./filter.scss');

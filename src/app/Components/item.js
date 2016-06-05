@@ -1,4 +1,3 @@
-import Button from './button';
 import moment from 'moment';
 
 require('./item.scss');
@@ -99,15 +98,15 @@ class Item extends React.Component{
       <div className={"item col-xs-12 " + this.state.status}>
         {details}
         <span className="actions">
-          <Button className="btn complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
+          <button type="button" className="btn complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
             <span className="glyphicon glyphicon-ok"/>
-          </Button>
-          <Button className="btn edit" onClick={this.toggleEditMode.bind(this)} >
+          </button>
+          <button type="button" className="btn edit" onClick={this.toggleEditMode.bind(this)} >
             <span className="glyphicon glyphicon-pencil"/>
-          </Button>
-          <Button className="btn delete " onClick={this.props.deleteItem}>
+          </button>
+          <button type="button" className="btn delete " onClick={this.props.deleteItem}>
             <span className="glyphicon glyphicon-remove"/>
-          </Button>
+          </button>
         </span>
       </div>
     );
