@@ -15,3 +15,5 @@ Change colour if its due
 switch to currentDate calendar
 set propTypes and defaultProps for everything
 Switch to agenda view
+
+error handling

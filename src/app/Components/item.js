@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'eonasdan-bootstrap-datetimepicker';
 
 require('./item.scss');
 
@@ -27,11 +28,20 @@ class Item extends React.Component{
       || prevState.text != this.state.text 
       || prevState.category != this.state.category)
       this.props.editItem(this);
+
+    //TODO: Make it possible to only reactivate this one
+    if (this.state.editMode)
+      $(".item .datetimepicker").datetimepicker();
+
   }
 
   toggleEditMode(event){
     event.preventDefault();
+    // TODO: This will fail if multiple edit modes are open at once
     this.setState({editMode: !this.state.editMode});
+    if (this.state.editMode)
+      // TODO: Add check so it doesn't always update
+      this.setState({deadline:moment(document.querySelectorAll('.deadline input')[0].value)});
   }
 
   handleTextChange(event){
@@ -40,6 +50,10 @@ class Item extends React.Component{
 
   handleCategoryChange(event){
     this.setState({category: event.target.value});
+  }
+
+  handleDateChange(event){
+    console.log(event);
   }
 
   completeItem(event){
@@ -83,7 +97,14 @@ class Item extends React.Component{
             {categories}
           </select>
           </div>
-          <span className="deadline">{date}</span>
+          <div className="form-group deadline">
+            <div className="input-group date datetimepicker">
+              <input type="text" className="form-control"  readonly="readonly" value={moment(this.state.deadline).format('MM/DD/YYYY hh:mm A')} onChange={this.handleDateChange.bind(this)}/>
+              <span className="input-group-addon">
+                <span className="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
         </form>
       ];
     else
@@ -101,6 +122,7 @@ class Item extends React.Component{
     return(
       <div className={"item col-xs-12 " + this.state.status}>
         {details}
+      { /*TODO: SWITCH ACTION TO SAVE ON EDIT MODE*/}
         <span className="actions">
           <button type="button" className="btn complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
             <span className="glyphicon glyphicon-ok"/>

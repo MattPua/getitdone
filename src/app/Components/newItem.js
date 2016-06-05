@@ -30,7 +30,7 @@ class NewItem extends  React.Component{
     let item = {
       id: this.state.id,
       text: this.state.text,
-      deadline: moment(document.querySelector('input.deadline').value),
+      deadline: moment(document.querySelector('.new-item input.deadline').value),
       category: this.state.category,
       status: 'incomplete'
     };
@@ -40,7 +40,7 @@ class NewItem extends  React.Component{
   }
 
   componentDidMount(){
-    $("#datetimepicker").datetimepicker();
+    $(".new-item .datetimepicker").datetimepicker();
   }
 
   render(){
@@ -52,7 +52,7 @@ class NewItem extends  React.Component{
     }
 
     return(
-      <form onSubmit={this.handleNewItem.bind(this)} className='form-inline'>
+      <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
         <div className="form-group">
           <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
         </div>
@@ -62,7 +62,7 @@ class NewItem extends  React.Component{
           </select>
         </div>
         <div className="form-group">
-          <div className="input-group date" id="datetimepicker">
+          <div className="input-group date datetimepicker">
             <input type="text" className="form-control deadline"  readonly="readonly" />
             <span className="input-group-addon">
               <span className="glyphicon glyphicon-calendar"></span>
