@@ -54,6 +54,7 @@ class NewItem extends  React.Component{
     return(
       <div className={"new-item " + this.props.className}>
         <div className="col-xs-12 new-item-container">
+          <p>New Item</p>
           <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
