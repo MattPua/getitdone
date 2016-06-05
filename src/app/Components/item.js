@@ -75,7 +75,7 @@ class Item extends React.Component{
 
   getDetailSection(){
     let date = "" + moment(this.state.deadline).calendar(null,{
-      nextWeek: '[Next Week] dddd [at] hh:mm A',
+      nextWeek: '[Next ] dddd [the] Do [at] hh:mm A',
       lastWeek: '[Last] dddd',
       sameElse: 'dddd MMMM Do YYYY [at] hh:mm A'
     });

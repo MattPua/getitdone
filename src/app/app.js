@@ -2,6 +2,9 @@ import ReactDOM from 'react-dom';
 import Header from './Components/header';
 import List from './Components/list';
 import Calendar from './Components/calendar';
+import Filter from './Components/filter';
+import NewItem from './Components/newItem';
+import UUID from 'node-uuid';
 import './other/general.scss';
 import './other/font.scss';
 
@@ -10,6 +13,7 @@ class App extends React.Component{
     super(props);
     console.log(window.localStorage.getItem('GetItDone'));
     this.state = {
+      activeCategory: 'all',
       items: [],
       categories: ['All']
     }
@@ -37,6 +41,10 @@ class App extends React.Component{
     // TODO: Loop this over elements names
     this.setState({items:  localStorage.items, categories: localStorage.categories });
 
+  }
+
+  updateActiveCategory(value){
+    this.setState({activeCategory: value});
   }
 
   deleteItem(id){
@@ -104,12 +112,16 @@ class App extends React.Component{
       <div className="container">
         <div className="row">
           <Header className="col-xs-12"/>
-          <List className="col-xs-12" items={this.state.items} categories={this.state.categories}
+          <Filter categories={this.state.categories} activeCategory={this.state.activeCategory} className="col-xs-12"
+              updateActiveCategory={this.updateActiveCategory.bind(this)}  
+              deleteCategory={this.deleteCategory.bind(this)}
+              saveNewCategory={this.updateCategoriesList.bind(this)}
+            />
+          <NewItem key={UUID.v4()} className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+          <List className="col-xs-12" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
           saveItem={this.saveItem.bind(this)}
-          updateCategoriesList={this.updateCategoriesList.bind(this)}
-          deleteCategory={this.deleteCategory.bind(this)}
           />
           <Calendar className="col-xs-12" items={this.state.items}/>
         </div>

@@ -33,20 +33,22 @@ class Filter extends React.Component{
   render(){
     let categories = [];
     return(
-      <div className="filter">
-        <span>Filter By Category:</span>
-        <ButtonDropDown key={UUID.v4()} 
-          items={this.props.categories.sort()} 
-          activeItem={this.props.activeCategory} 
-          handleOnClick={this.props.updateActiveCategory}/>
-        <form TODO>
-          <div className="input-group">
-            <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
-            <span className="input-group-btn">
-              <button className="btn" type="button" onClick={this.handleOnClick.bind(this)}>New Category...</button>
-            </span>
-          </div>
-        </form>
+      <div className={"filter " + this.props.className}>
+        <div className="col-xs-12 filter-container">
+          <span>Filter By Category:</span>
+          <ButtonDropDown key={UUID.v4()} 
+            items={this.props.categories.sort()} 
+            activeItem={this.props.activeCategory} 
+            handleOnClick={this.props.updateActiveCategory}/>
+          <form TODO>
+            <div className="input-group">
+              <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
+              <span className="input-group-btn">
+                <button className="btn" type="button" onClick={this.handleOnClick.bind(this)}>New Category...</button>
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

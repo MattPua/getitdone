@@ -1,7 +1,7 @@
 import moment from 'moment';
 import UUID from 'node-uuid';
 import 'eonasdan-bootstrap-datetimepicker';
-
+import './newItem.scss';
 
 class NewItem extends  React.Component{
   constructor(props){
@@ -52,25 +52,29 @@ class NewItem extends  React.Component{
     }
 
     return(
-      <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
-        <div className="form-group">
-          <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+      <div className={"new-item " + this.props.className}>
+        <div className="col-xs-12 new-item-container">
+          <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
+            <div className="form-group">
+              <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+            </div>
+            <div className="form-group">
+              <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
+                {categories}
+              </select>
+            </div>
+            <div className="form-group">
+              <div className="input-group date datetimepicker">
+                <input type="text" className="form-control deadline"  readonly="readonly" />
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+            <button className="btn" type="submit">Save</button>
+          </form>
         </div>
-        <div className="form-group">
-          <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
-            {categories}
-          </select>
-        </div>
-        <div className="form-group">
-          <div className="input-group date datetimepicker">
-            <input type="text" className="form-control deadline"  readonly="readonly" />
-            <span className="input-group-addon">
-              <span className="glyphicon glyphicon-calendar"></span>
-            </span>
-          </div>
-        </div>
-        <button className="btn" type="submit">Save</button>
-      </form>
+      </div>
     );
   }
 }
