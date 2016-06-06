@@ -1,4 +1,11 @@
-@import '../fonts/libelSuit.scss';
+@import './mixins';
+
+// FONT FAMILIES
+@include font-face("libel-suit-rg", "/public/fonts/libel-suit-rg", $weight: normal, $style: normal);
+
+
+// END FONT FAMILIES
+
 div {
-  font-family: 'libel-suit', Helvetica;
+  font-family: 'libel-suit-rg', Helvetica;
 }

@@ -25,6 +25,15 @@ class Calendar extends React.Component{
     }
     return count;
   }
+  // TODO: Combine these two together
+  getItemsDueOnMonth(month,items){
+    let count = 0;
+    for (let item of items){
+      if (Moment(item.deadline).isSame(month,'month'))
+        count++;
+    }
+    return count++;
+  }
 
   getDays(){
     // TODO: Looks pretty ugly
@@ -78,23 +87,41 @@ class Calendar extends React.Component{
     this.setState({date: date});
   }
 
+  getViewButtons(){
+    return(
+      <div className="btn-group">
+        <button className="btn" type="button" value="month">MONTH</button>
+        <button className="btn" type="button" value="day">DAY</button>
+      </div>
+    );
+  }
+  getMonthContainer(){
+    let viewButtons = this.getViewButtons();
+    let numDue = this.getItemsDueOnMonth(Moment(this.state.date),this.props.items);
+    return(
+      <div className="month-year-container col-xs-12">
+        <div className="month-action">
+          <span className="prev action" onClick={this.prevMonth.bind(this)}>{'<'}</span>
+        </div>
+        <div className="month-year">
+          <div>{this.state.date.format("MMMM")}</div>
+          <div>{this.state.date.format("YYYY")}</div>
+          <span className={numDue>0 ? "count" : ''}>{numDue>0 ? numDue: ''}</span>
+        </div>
+        <div className="month-action">
+          <span className="next action" onClick={this.nextMonth.bind(this)}>{'>'}</span>
+        </div>
+        {viewButtons}
+      </div>
+    );
+  }
   render(){
     let dayNames = this.getDayNames()
     let days = this.getDays();
+    let month = this.getMonthContainer();
     return(
       <div className={"calendar-container " +this.props.className} >
-        <div className="month-year-container col-xs-12">
-          <div className="month-action">
-            <span className="prev action" onClick={this.prevMonth.bind(this)}>{'<'}</span>
-          </div>
-          <div className="month-year">
-            <div>{this.state.date.format("MMMM")}</div>
-            <div>{this.state.date.format("YYYY")}</div>
-          </div>
-          <div className="month-action">
-            <span className="next action" onClick={this.nextMonth.bind(this)}>{'>'}</span>
-          </div>
-        </div>
+        {month}
         <table className="day-container col-xs-12">
           <thead className="day-names">
             <tr>
@@ -117,11 +144,13 @@ class Calendar extends React.Component{
 
 Calendar.defaultProps = {
   items: [],
-  className: ''
+  className: '',
+  viewMode: 'month'
 };
 Calendar.propTypes ={
   items: React.PropTypes.array.isRequired,
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  viewMode: React.PropTypes.string
 };
 
 export default Calendar;

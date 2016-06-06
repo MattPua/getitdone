@@ -2,6 +2,7 @@ import Item from './item';
 import SortOptions from './sortOptions';
 import Helper from '../other/helper';
 import UUID from 'node-uuid';
+import Moment from 'moment';
 require('./list.scss');
 class List extends React.Component{
   constructor(props){
@@ -43,7 +44,9 @@ class List extends React.Component{
     return(
       <div className={"list " + this.props.className}>
         <div className='col-xs-12 item-container'>
-          {"There are " + items.length + " things to do"}
+          {"Today is " + Moment().format("dddd MMMM Do, YYYY") + ":"}
+          <br/>
+          {"There are " + items.length + " things to do."}
           <hr/>
           {items.length > 0 ? items : "Everything's done!"}
         </div>

@@ -24,6 +24,10 @@
   display:inline-block;
 }
 
+.month-year-container .month-year {
+  position: relative;
+}
+
 .month-year-container .month-action:nth-child(3) {
   text-align: right;
 }
@@ -31,6 +35,20 @@
 .month-year-container .month-action .action:hover{
   color: black;
   cursor:pointer;
+}
+
+.month-year-container .month-year .count{
+  position: absolute;
+  right: 280px;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-family: Helvetica;
+  font-weight: normal;
+  font-size: 10px;
+  top: -5px;
+  color: black;
 }
 
 .day-container{
