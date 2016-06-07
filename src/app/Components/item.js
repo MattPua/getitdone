@@ -1,6 +1,7 @@
 import moment from 'moment';
 import 'eonasdan-bootstrap-datetimepicker';
 import Helper from '../other/Helper';
+import ButtonDropdown from './buttonDropdown';
 require('./item.scss');
 
 class Item extends React.Component{
@@ -138,13 +139,30 @@ class Item extends React.Component{
     return false;
   }
 
-  render(){
-    let details = this.getDetailSection();
-
+  getMobileActions(){
     return(
-      <div className={"item col-xs-12 " + this.state.status}>
-        {details}
-      { /*TODO: SWITCH ACTION TO SAVE ON EDIT MODE*/}
+      <div className="btn-group actions mobile-only">
+        <button type="button" className="btn primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          &#9776;
+           <span className="caret"></span>
+        </button>
+        <ul className="dropdown-menu">
+        <li className="complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
+          <a href="#"><span className="glyphicon glyphicon-ok"/> Complete</a>
+        </li>
+        <li className="edit" onClick={this.toggleEditMode.bind(this)}>
+          <a href="#"><span className="glyphicon glyphicon-pencil"/> Edit</a>
+        </li>
+        <li className="delete" onClick={this.props.deleteItem}>
+          <a href="#"><span className="glyphicon glyphicon-remove"/> Delete</a>
+        </li>
+        </ul>
+      </div>
+    );
+  }
+
+  getActions(){
+    return(
         <span className="actions">
           <button type="button" className="btn complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
             <span className="glyphicon glyphicon-ok"/>
@@ -156,6 +174,19 @@ class Item extends React.Component{
             <span className="glyphicon glyphicon-remove"/>
           </button>
         </span>
+
+      );
+  }
+
+  render(){
+    let details = this.getDetailSection();
+    let mobileActions = this.getMobileActions();
+    let actions = this.getActions();
+    return(
+      <div className={"item col-xs-12 " + this.state.status}>
+        {details}
+        {actions}
+        {mobileActions}
       </div>
     );
   }

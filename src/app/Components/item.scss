@@ -1,3 +1,4 @@
+@import '../other/main';
 .item {
   margin: 10px 0;
   border: 1px solid black;
@@ -13,10 +14,20 @@
   margin-right: 10px;
 }
 
-.item .actions {
+.item .actions:not(.mobile-only) {
+  float: right;
+  @media (max-width: $size-xs-max){
+    display: none;
+  }
+}
+
+.item .actions.mobile-only{
   float: right;
 }
 
+.item .mobile-only {
+  @include hide-not-mobile();
+}
 .item form {
   @media (min-width: 768px){
     display: inline-block;

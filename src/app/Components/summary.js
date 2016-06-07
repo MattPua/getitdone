@@ -30,9 +30,14 @@ class Summary extends React.Component{
       if (nextDue == null)
         nextDue = item;
       else
-        nextDue = Moment(nextDue.deadline).isAfter(Moment(item.deadline)) ? nextDue : item;
+        nextDue = Moment(nextDue.deadline).isAfter(Moment(item.deadline)) ? item : nextDue;
     }
-    let nextDueText = nextDue!=null ?  <p>{nextDue.text} due on {Moment(nextDue.deadline).format("dddd MMMM do, hh:mm A")}</p> : '';
+    nextDue = nextDue!=null ?  
+      <Item id={nextDue.id} text={nextDue.text} deadline={nextDue.deadline} category={nextDue.category} key={nextDue.id} status={nextDue.status}
+        categories={this.props.categories}
+        deleteItem={this.props.deleteItem}
+        editItem={this.props.editItem}
+      /> : '';
     return(
       <div className="summary-details">
         <p className="total-due">You have {this.props.items.length} items due:</p>
@@ -42,7 +47,7 @@ class Summary extends React.Component{
           <li className="tag overdue">{overDueItems.length} items overdue</li>
         </ul>
         <p>Your next item is:</p>
-        {nextDueText}        
+        {nextDue}        
 
 
       </div>

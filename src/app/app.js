@@ -112,7 +112,9 @@ class App extends React.Component{
       <div className="container">
         <div className="row">
           <br/>
-          <Summary items={this.state.items} className="col-xs-12"/>
+          <Summary items={this.state.items} className="col-xs-12" categories={this.state.categories}
+          deleteItem={this.deleteItem.bind(this)}
+          editItem={this.editItem.bind(this)} />
           <Filter categories={this.state.categories} activeCategory={this.state.activeCategory} className="col-xs-12"
               updateActiveCategory={this.updateActiveCategory.bind(this)}  
               deleteCategory={this.deleteCategory.bind(this)}

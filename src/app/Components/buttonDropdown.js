@@ -25,5 +25,7 @@ class ButtonDropdown extends React.Component{
     );
   }
 }
+ButtonDropdown.defaultProps={};
+ButtonDropdown.propTypes={};
 
 export default ButtonDropdown;

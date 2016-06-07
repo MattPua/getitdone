@@ -44,3 +44,9 @@
     font-style: $style;
   }
 }
+
+@mixin hide-not-mobile(){
+   @media (min-width: $size-xs-max){
+    display: none;
+  }
+}
