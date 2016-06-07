@@ -1,6 +1,6 @@
 import Item from './item';
 import SortOptions from './sortOptions';
-import Helper from '../other/helper';
+import AppHelper from '../other/AppHelper';
 import UUID from 'node-uuid';
 import Moment from 'moment';
 require('./list.scss');
@@ -64,8 +64,8 @@ List.defaultProps = {
   sortOptions          : ['Deadline','Text','Category'],
   items                : [],
   categories           : ['All'],
-  deleteItem           : Helper.notInitialized,
-  editItem             : Helper.notInitialized,
+  deleteItem           : AppHelper.notInitialized,
+  editItem             : AppHelper.notInitialized,
   className            : '',
   activeCategory       : 'All'
 };

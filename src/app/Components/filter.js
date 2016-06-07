@@ -1,6 +1,6 @@
 import UUID from 'node-uuid';
 import ButtonDropDown from './buttonDropDown';
-import Helper from '../other/helper';
+import AppHelper from '../other/AppHelper';
 require('./filter.scss');
 
 class Filter extends React.Component{
@@ -66,9 +66,9 @@ Filter.defaultProps = {
   categories           : [],
   activeCategory       : 'All',
   className            : '',
-  updateActiveCategory : Helper.notInitialized,
-  deleteCategory       : Helper.notInitialized,
-  saveNewCategory      : Helper.notInitialized
+  updateActiveCategory : AppHelper.notInitialized,
+  deleteCategory       : AppHelper.notInitialized,
+  saveNewCategory      : AppHelper.notInitialized
 };
 
 export default Filter;

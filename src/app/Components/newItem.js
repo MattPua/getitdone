@@ -2,7 +2,7 @@ import moment from 'moment';
 import UUID from 'node-uuid';
 import 'eonasdan-bootstrap-datetimepicker';
 import './newItem.scss';
-import Helper from './../other/Helper';
+import AppHelper from './../other/AppHelper';
 
 class NewItem extends  React.Component{
   constructor(props){
@@ -84,7 +84,7 @@ class NewItem extends  React.Component{
 NewItem.defaultProps={
   className   : '',
   categories  : [],
-  saveNewItem : Helper.notInitialized
+  saveNewItem : AppHelper.notInitialized
 };
 NewItem.propTypes={
   className   : React.PropTypes.string,

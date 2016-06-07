@@ -1,6 +1,6 @@
 import moment from 'moment';
 import 'eonasdan-bootstrap-datetimepicker';
-import Helper from '../other/Helper';
+import AppHelper from '../other/AppHelper';
 import ButtonDropdown from './buttonDropdown';
 require('./item.scss');
 
@@ -147,8 +147,8 @@ class Item extends React.Component{
            <span className="caret"></span>
         </button>
         <ul className="dropdown-menu">
-        <li className="complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
-          <a href="#"><span className="glyphicon glyphicon-ok"/> Complete</a>
+        <li className="complete" onClick={this.completeItem.bind(this)} >
+          <a href="#" value={this.state.status}><span className="glyphicon glyphicon-ok"/> Complete</a>
         </li>
         <li className="edit" onClick={this.toggleEditMode.bind(this)}>
           <a href="#"><span className="glyphicon glyphicon-pencil"/> Edit</a>
@@ -200,8 +200,8 @@ Item.defaultProps = {
   deadline   : null,
   status     : '',
   categories : [],
-  deleteItem : Helper.notInitialized,
-  editItem   : Helper.notInitialized
+  deleteItem : AppHelper.notInitialized,
+  editItem   : AppHelper.notInitialized
 };
 Item.propTypes = {
   id         : React.PropTypes.string.isRequired,

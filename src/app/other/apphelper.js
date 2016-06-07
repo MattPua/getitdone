@@ -1,8 +1,8 @@
-class Helper{
+class AppHelper{
   static notInitialized(){
     console.error('[INIT ERROR] IS NOT INITIALIZED!');
   }
 
 }
 
-export default Helper;
+export default AppHelper;
