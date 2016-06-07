@@ -1,4 +1,4 @@
-@import '../other/colours';
+@import '../other/main';
 
 .month-year-container{
   background-color: $primary;
@@ -39,14 +39,14 @@
 
 .month-year-container .month-year .count{
   position: absolute;
-  right: 280px;
+  right: 90px;
   background-color: white;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   font-family: Helvetica;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 12px;
   top: -5px;
   color: black;
 }
@@ -77,7 +77,6 @@
 
 .day-container .day .count{
   position: absolute;
-  right: 20px;
   background-color: white;
   width: 15px;
   height: 15px;

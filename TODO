@@ -18,5 +18,16 @@ Switch to agenda view
 error handling
 Looks like the positioning of count in the bubbles in calendar are slightly off for some
 
-Add icon for total count of items for month in the calendar
+
 subtasks
+
+in list view, prioritize overdue items
+
+PAGINATION!
+
+for pop up calendar, highlight the date of today so its easier to tell
+
+add another bubble icon for Today's calendar date in case it's due
+
+
+Rebuild grid sizes

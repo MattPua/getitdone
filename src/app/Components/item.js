@@ -117,6 +117,27 @@ class Item extends React.Component{
     return returnValue;
   }
 
+  static isDueOn(date,deadline,type ){
+    if (type == null || type == 'undefined' || type == '')
+      throw "Invalid type selection provided.";
+    if (date == null || date == 'undefined ' || date == '')
+      throw "Invalid date provided.";
+    if (deadline == null || deadline == 'undefined ' || deadline == '')
+      throw "Invalid deadline provided.";
+    if (moment(deadline).isSame(moment(date),type) )
+      return true;
+    return false;
+  }
+  static isOverdue(date,deadline){
+    if (date == null || date == 'undefined ' || date == '')
+      throw "Invalid date provided.";
+    if (deadline == null || deadline == 'undefined ' || deadline == '')
+      throw "Invalid deadline provided.";
+    if (moment(deadline).isBefore(moment(date)))
+      return true;
+    return false;
+  }
+
   render(){
     let details = this.getDetailSection();
 
@@ -139,6 +160,8 @@ class Item extends React.Component{
     );
   }
 }
+
+
 
 Item.defaultProps = {
   id         : null,

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Moment from 'moment';
 require('./header.scss');
 
 class Header extends React.Component {
@@ -7,9 +7,9 @@ class Header extends React.Component {
     super(props);
   }
 
-  shouldComponentUpdate(nextProps,nextState){
-    return false;
-  }
+/*  shouldComponentUpdate(nextProps,nextState){
+    // return false;
+  }*/
 
   render(){
     return(

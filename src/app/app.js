@@ -4,9 +4,9 @@ import List from './Components/list';
 import Calendar from './Components/calendar';
 import Filter from './Components/filter';
 import NewItem from './Components/newItem';
+import Summary from './Components/summary';
 import UUID from 'node-uuid';
-import './other/general.scss';
-import './other/font.scss';
+import './other/main.scss';
 
 class App extends React.Component{
   constructor(props){
@@ -111,7 +111,8 @@ class App extends React.Component{
     return (
       <div className="container">
         <div className="row">
-          <Header className="col-xs-12"/>
+          <br/>
+          <Summary items={this.state.items} className="col-xs-12"/>
           <Filter categories={this.state.categories} activeCategory={this.state.activeCategory} className="col-xs-12"
               updateActiveCategory={this.updateActiveCategory.bind(this)}  
               deleteCategory={this.deleteCategory.bind(this)}

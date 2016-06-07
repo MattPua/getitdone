@@ -6,7 +6,8 @@ class Calendar extends React.Component{
     super(props);
     this.state = {
       date: Moment(),
-      days: ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat']
+      days: ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat'],
+      viewMode: 'month'
     }
   }
   getDayNames(){
@@ -87,11 +88,15 @@ class Calendar extends React.Component{
     this.setState({date: date});
   }
 
+  switchViewMode(event){
+    this.setState({viewMode: event.target.value});
+  }
+
   getViewButtons(){
     return(
       <div className="btn-group">
-        <button className="btn" type="button" value="month">MONTH</button>
-        <button className="btn" type="button" value="day">DAY</button>
+        <button className={"btn "} type="button" value="month" onClick={this.switchViewMode}>MONTH</button>
+        <button className={"btn "} type="button" value="day" onClick={this.switchViewMode}>DAY</button>
       </div>
     );
   }
