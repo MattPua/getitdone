@@ -139,6 +139,20 @@ class Item extends React.Component{
     return false;
   }
 
+  deleteItem(event){
+    event.preventDefault();
+    let type = event._targetInst._tag;
+    let value = '';
+    // get parent
+    if (type == 'span' || type =='a'){
+      //TODO: HACKY
+      value = event._targetInst._nativeParent._currentElement.props.value;
+    }
+    else
+      value = event.target.value;
+    this.props.deleteItem(value);
+  }
+
   getMobileActions(){
     return(
       <div className="btn-group actions mobile-only">
@@ -153,8 +167,8 @@ class Item extends React.Component{
         <li className="edit" onClick={this.toggleEditMode.bind(this)}>
           <a href="#"><span className="glyphicon glyphicon-pencil"/> Edit</a>
         </li>
-        <li className="delete" onClick={this.props.deleteItem}>
-          <a href="#"><span className="glyphicon glyphicon-remove"/> Delete</a>
+        <li className="delete" onClick={this.deleteItem.bind(this)} value={this.props.id}>
+          <a href="#" value={this.props.id}><span className="glyphicon glyphicon-remove"/> Delete</a>
         </li>
         </ul>
       </div>
@@ -170,7 +184,7 @@ class Item extends React.Component{
           <button type="button" className="btn edit" onClick={this.toggleEditMode.bind(this)} >
             <span className="glyphicon glyphicon-pencil"/>
           </button>
-          <button type="button" className="btn delete " onClick={this.props.deleteItem}>
+          <button type="button" className="btn delete " onClick={this.deleteItem.bind(this)}  value={this.props.id}>
             <span className="glyphicon glyphicon-remove"/>
           </button>
         </span>
@@ -206,7 +220,7 @@ Item.defaultProps = {
 Item.propTypes = {
   id         : React.PropTypes.string.isRequired,
   text       : React.PropTypes.string.isRequired,
-  deadline   : React.PropTypes.string.isRequired,
+  deadline   : React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object]),
   status     : React.PropTypes.string.isRequired,
   categories : React.PropTypes.array.isRequired,
   deleteItem : React.PropTypes.func.isRequired,
