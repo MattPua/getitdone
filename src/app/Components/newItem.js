@@ -25,13 +25,14 @@ class NewItem extends  React.Component{
 
   handleNewItem(event){
     event.preventDefault();
-    if (this.state.text == '') return;
+    let deadline = document.querySelector('.new-item input.deadline').value;
+    if (this.state.text == '' || deadline == '' || deadline == null) return;
 
     let currentDate = moment().format();
     let item = {
       id: this.state.id,
       text: this.state.text,
-      deadline: moment(document.querySelector('.new-item input.deadline').value),
+      deadline: moment(deadline),
       category: this.state.category,
       status: 'incomplete'
     };

@@ -5,7 +5,6 @@ import Calendar from './Components/calendar';
 import Filter from './Components/filter';
 import NewItem from './Components/newItem';
 import Summary from './Components/summary';
-import UUID from 'node-uuid';
 import './other/main.scss';
 
 class App extends React.Component{
@@ -120,13 +119,13 @@ class App extends React.Component{
               deleteCategory={this.deleteCategory.bind(this)}
               saveNewCategory={this.updateCategoriesList.bind(this)}
             />
-          <NewItem key={UUID.v4()} className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+          <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
           <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
           saveItem={this.saveItem.bind(this)}
           />
-          <Calendar className="col-xs-12 col-md-6" items={this.state.items}/>
+          <Calendar className="col-xs-12 col-md-6" items={this.state.items} />
         </div>
       </div>
     );

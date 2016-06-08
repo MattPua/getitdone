@@ -12,6 +12,7 @@ class Filter extends React.Component{
   }
 
   onChange(event){
+    event.preventDefault();
     this.setState({newCategory: event.target.value});
   }
 
@@ -44,7 +45,7 @@ class Filter extends React.Component{
             <div className="input-group">
               <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
               <span className="input-group-btn">
-                <button className="btn" type="button" onClick={this.handleOnClick.bind(this)}>New Category...</button>
+                <button className="btn" type="submit" onClick={this.handleOnClick.bind(this)}>New Category...</button>
               </span>
             </div>
           </form>

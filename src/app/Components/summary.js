@@ -8,11 +8,18 @@ class Summary extends React.Component{
       datetime: Moment()
     };
     let that = this;
+  }
+
+  componentDidMount(){
+    this.startTimeUpdater();
+  }
+
+  startTimeUpdater(){
+    let that = this;
     setInterval(function(){
       that.setState({datetime: Moment()});
     },60000);
   }
-
 
   getSummaryDetails(){
     let items = this.props.items;
@@ -20,7 +27,9 @@ class Summary extends React.Component{
     let overDueItems = [];
     let dueThisWeek = [];
     let nextDue = null;
+    let itemsDue = [];
     for (let item of items){
+      if (item.status == 'complete') continue;
       if (Item.isDueOn(this.state.datetime,item.deadline,'day'))
         dueToday.push(item);
       if (Item.isDueOn(this.state.datetime,item.deadline,'week'))
@@ -31,6 +40,7 @@ class Summary extends React.Component{
         nextDue = item;
       else
         nextDue = Moment(nextDue.deadline).isAfter(Moment(item.deadline)) ? item : nextDue;
+      itemsDue.push(item);
     }
     nextDue = nextDue!=null ?  [
       <p>Your next item is:</p>,
@@ -39,13 +49,16 @@ class Summary extends React.Component{
         deleteItem={this.props.deleteItem}
         editItem={this.props.editItem}
       /> ] : '';
+    let dueTodayText = dueToday.length > 0 ? <li className="tag due-today">{dueToday.length} items due today</li> : '';
+    let dueThisWeekText = dueThisWeek.length > 0 ? <li className="tag due-week">{dueThisWeek.length} items due this week</li> : '';
+    let overDueText = overDueItems.length>0 ? <li className="tag overdue">{overDueItems.length} items overdue</li> : '';
     return(
       <div className="summary-details">
-        <p className="total-due">You have {this.props.items.length} items due:</p>
+        <p className="total-due">You have {itemsDue.length} items due:</p>
         <ul>
-          <li className="tag due-today">{dueToday.length} items due today</li>
-          <li className="tag due-week">{dueThisWeek.length} items due this week</li>
-          <li className="tag overdue">{overDueItems.length} items overdue</li>
+          {dueTodayText}
+          {dueThisWeekText}
+          {overDueText}
         </ul>
         {nextDue}        
 

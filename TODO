@@ -29,6 +29,11 @@ for pop up calendar, highlight the date of today so its easier to tell
 
 add another bubble icon for Today's calendar date in case it's due
 
+Filter out items in list by completed or not
+Add styling to completed
 
 Rebuild grid sizes
 
+Change action buttons on mobile version if in edit mode
+
+Edit button on the top next item doesnt trigger update on items list

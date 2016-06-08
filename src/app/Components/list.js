@@ -43,7 +43,7 @@ class List extends React.Component{
     let items = this.getItemsToShow();
     return(
       <div className={"list " + this.props.className}>
-        <div className='col-xs-12 item-container'>
+        <div className='col-xs-12 list-container'>
           <h5>Items:</h5>
           {items.length > 0 ? items : "Everything's done!"}
         </div>
