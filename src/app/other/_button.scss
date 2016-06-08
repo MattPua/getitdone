@@ -5,25 +5,30 @@
 .btn.active{
   background-color: $primary;
   color: white;
+  border-color: $primary;
 }
 
 .btn.primary{
   background-color: $primary;
   color: white;
+  border-color: $primary;
 }
 
 .btn.delete{
   background-color: $primary-failure;
   color: white;
+  border-color:$primary-failure;
 }
 
 .btn.complete{
   background-color: $primary-success;
+  border-color: $primary-success;
   color:white;
 }
 
 .btn.edit{
   background-color: $primary-warning;
+  border-color:$primary-warning;
 }
 
 .btn-group{

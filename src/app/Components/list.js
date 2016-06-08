@@ -1,8 +1,8 @@
 import Item from './item';
 import SortOptions from './sortOptions';
 import AppHelper from '../other/AppHelper';
-import UUID from 'node-uuid';
 import Moment from 'moment';
+import Pagination from './pagination';
 require('./list.scss');
 class List extends React.Component{
   constructor(props){
@@ -45,7 +45,7 @@ class List extends React.Component{
       <div className={"list " + this.props.className}>
         <div className='col-xs-12 list-container'>
           <h5>Items:</h5>
-          {items.length > 0 ? items : "Everything's done!"}
+          <Pagination className="col-xs-12" items={items} itemsPerPage={2}/>
         </div>
       </div>
     );

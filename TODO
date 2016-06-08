@@ -34,6 +34,7 @@ Add styling to completed
 
 Rebuild grid sizes
 
-Change action buttons on mobile version if in edit mode
 
 Edit button on the top next item doesnt trigger update on items list
+
+make the category/tags into their own thing

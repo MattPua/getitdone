@@ -112,7 +112,7 @@ class Item extends React.Component{
 
   getMobileActions(){
     return(
-      <div className="btn-group mobile-only">
+      <div className="btn-group">
         <button type="button" className="btn primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           &#9776;
            <span className="caret"></span>
@@ -166,7 +166,7 @@ class Item extends React.Component{
     }
     if (this.state.editMode)
       returnValue = [
-        <form onSubmit={this.toggleEditMode.bind(this)} className="form-inline">
+        <form onSubmit={this.toggleEditMode.bind(this)} className="form-inline col-xs-9">
           <div className="form-group">
             <input type="text" className="text form-control" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
           </div>

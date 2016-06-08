@@ -25,7 +25,7 @@ class NewItem extends  React.Component{
 
   handleNewItem(event){
     event.preventDefault();
-    let deadline = document.querySelector('.new-item input.deadline').value;
+    let deadline = $(this.refs.deadline).val();
     if (this.state.text == '' || deadline == '' || deadline == null) return;
 
     let currentDate = moment().format();
@@ -38,7 +38,8 @@ class NewItem extends  React.Component{
     };
 
     this.props.saveNewItem(item);
-    this.setState({text: '',category: ''});
+    this.setState({text: '',category: '', deadline: ''});
+    $(this.refs.deadline).val('');
   }
 
   componentDidMount(){
@@ -68,7 +69,7 @@ class NewItem extends  React.Component{
             </div>
             <div className="form-group">
               <div className="input-group date datetimepicker">
-                <input type="text" className="form-control deadline"  readonly="readonly" />
+                <input type="text" className="form-control deadline"  readonly="readonly" placeholder="Deadline" ref="deadline"/>
                 <span className="input-group-addon">
                   <span className="glyphicon glyphicon-calendar"></span>
                 </span>
