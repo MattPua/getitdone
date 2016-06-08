@@ -38,8 +38,7 @@ class NewItem extends  React.Component{
     };
 
     this.props.saveNewItem(item);
-    this.setState({text: '',category: '', deadline: ''});
-    $(this.refs.deadline).val('');
+    this.setState({text: '', id: UUID.v4()});
   }
 
   componentDidMount(){

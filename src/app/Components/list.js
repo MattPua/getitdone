@@ -45,6 +45,8 @@ class List extends React.Component{
       <div className={"list " + this.props.className}>
         <div className='col-xs-12 list-container'>
           <h5>Items:</h5>
+          <hr/>
+          {items.length > 0 ? "" : "Everything's done!"}
           <Pagination className="col-xs-12" items={items} itemsPerPage={2}/>
         </div>
       </div>
