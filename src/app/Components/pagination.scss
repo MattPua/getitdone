@@ -3,7 +3,8 @@
   border: 1px solid;
   padding: 4px 10px;
   float: right;
-  min-width: 30px;
+  max-width: 30px;
+  width: 30px;
 }
 
 .pagination .items-per-page{
@@ -13,4 +14,12 @@
 
 .pagination .items-per-page label {
   margin-right: 5px;
+}
+
+.pagination .prev, .pagination .next {
+  font-size: 14px;
+}
+
+.pagination .pages span {
+  right: 2px;
 }

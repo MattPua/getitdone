@@ -34,7 +34,7 @@ class Pagination extends React.Component{
     let disabledBack = this.props.currentPage == 1 ? "disabled" : '';
     let disabledNext = this.props.currentPage == endPage ? "disabled" : '';
     pages.push(
-      <button type="button" className="btn pages" onClick={this.handlePageChange.bind(this)} value="-1" disabled={disabledBack}> <span className="glyphicon glyphicon-menu-left" value="-1"/> </button>
+      <button type="button" className="btn pages prev" onClick={this.handlePageChange.bind(this)} value="-1" disabled={disabledBack}> <span className="glyphicon glyphicon-menu-left" value="-1"/> </button>
     );
     while(index <= endPage){
       let className='';
@@ -46,7 +46,7 @@ class Pagination extends React.Component{
       index++;
     }
     pages.push(
-      <button type="button" className="btn pages" onClick={this.handlePageChange.bind(this)} value="+1" disabled={disabledNext}> <span className="glyphicon glyphicon-menu-right" value="+1"/> </button>
+      <button type="button" className="btn pages next" onClick={this.handlePageChange.bind(this)} value="+1" disabled={disabledNext}> <span className="glyphicon glyphicon-menu-right" value="+1"/> </button>
     );
     pages.reverse();
 
@@ -67,6 +67,7 @@ class Pagination extends React.Component{
   }
 
   changeNumItemsPerPage(){
+    // TODO: Add all option?
     return(
       <form className="form-inline items-per-page">
         <div className="form-group">
