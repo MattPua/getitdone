@@ -8,7 +8,8 @@ class List extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      activeOption: 'deadline'
+      activeOption: 'deadline',
+      itemsPerPage: 5
     };
   }
 
@@ -47,7 +48,9 @@ class List extends React.Component{
           <h5>Items:</h5>
           <hr/>
           {items.length > 0 ? "" : "Everything's done!"}
-          <Pagination className="col-xs-12" items={items} itemsPerPage={2}/>
+          <Pagination className="col-xs-12" items={items} itemsPerPage={this.state.itemsPerPage} currentPage={this.props.currentPage}
+            updateCurrentPage={this.props.updateCurrentPage}
+          />
         </div>
       </div>
     );
@@ -60,7 +63,8 @@ List.propTypes = {
   deleteItem           : React.PropTypes.func.isRequired,
   editItem             : React.PropTypes.func.isRequired,
   className            : React.PropTypes.string,
-  activeCategory       : React.PropTypes.string
+  activeCategory       : React.PropTypes.string,
+  currentPage          : React.PropTypes.number.isRequired 
 };
 List.defaultProps = {
   sortOptions          : ['Deadline','Text','Category'],
@@ -69,6 +73,7 @@ List.defaultProps = {
   deleteItem           : AppHelper.notInitialized,
   editItem             : AppHelper.notInitialized,
   className            : '',
-  activeCategory       : 'All'
+  activeCategory       : 'All',
+  currentPage          : 1
 };
 export default List;

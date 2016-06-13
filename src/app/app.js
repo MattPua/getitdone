@@ -14,7 +14,8 @@ class App extends React.Component{
     this.state = {
       activeCategory: 'all',
       items: [],
-      categories: ['All']
+      categories: ['All'],
+      currentPage: 1
     }
   }
 
@@ -45,7 +46,7 @@ class App extends React.Component{
   updateActiveCategory(value){
     this.setState({activeCategory: value});
   }
-
+  
   deleteItem(id){
     var existingItems = this.state.items;
     var foundItem = $.grep(existingItems,function(e){
@@ -106,6 +107,10 @@ class App extends React.Component{
     this.setState({items: existingItems});
   }
 
+  updateCurrentPage(value){
+    this.setState({currentPage: value});
+  }
+
   render(){
     return (
       <div className="container">
@@ -120,7 +125,8 @@ class App extends React.Component{
               saveNewCategory={this.updateCategoriesList.bind(this)}
             />
           <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
-          <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory}
+          <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage}
+          updateCurrentPage={this.updateCurrentPage.bind(this)}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
           saveItem={this.saveItem.bind(this)}
