@@ -28,7 +28,7 @@ class List extends React.Component{
       }
 
       items.push(
-        <Item id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
+        <Item className="col-xs-12 col-sm-6" id={item.id} text={item.text} deadline={item.deadline} category={item.category} key={item.id} status={item.status}
           categories={this.props.categories}
           deleteItem={this.props.deleteItem}
           editItem={this.props.editItem}

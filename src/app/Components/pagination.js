@@ -64,6 +64,7 @@ class Pagination extends React.Component{
 
   handleItemsPerPageChange(event){
     this.props.changeNumberItemsPerPage(event.target.value);
+    this.props.updateCurrentPage(1);
   }
 
   changeNumItemsPerPage(){

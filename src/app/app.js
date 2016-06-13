@@ -130,14 +130,14 @@ class App extends React.Component{
               saveNewCategory={this.updateCategoriesList.bind(this)}
             />
           <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
-          <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage} itemsPerPage={this.state.itemsPerPage}
+          <List className="col-xs-12 col-md-12" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage} itemsPerPage={this.state.itemsPerPage}
           changeNumberItemsPerPage={this.changeNumberItemsPerPage.bind(this)}
           updateCurrentPage={this.updateCurrentPage.bind(this)}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
           saveItem={this.saveItem.bind(this)}
           />
-          <Calendar className="col-xs-12 col-md-6" items={this.state.items} />
+          <Calendar className="col-xs-12" items={this.state.items} />
         </div>
       </div>
     );

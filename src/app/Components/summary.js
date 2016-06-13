@@ -44,7 +44,7 @@ class Summary extends React.Component{
     }
     nextDue = nextDue!=null ?  [
       <p>Your next item is:</p>,
-      <Item id={nextDue.id} text={nextDue.text} deadline={nextDue.deadline} category={nextDue.category} key={nextDue.id} status={nextDue.status}
+      <Item className="col-xs-12" id={nextDue.id} text={nextDue.text} deadline={nextDue.deadline} category={nextDue.category} key={nextDue.id} status={nextDue.status}
         categories={this.props.categories}
         deleteItem={this.props.deleteItem}
         editItem={this.props.editItem}

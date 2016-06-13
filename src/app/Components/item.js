@@ -211,7 +211,7 @@ class Item extends React.Component{
       sameElse: 'dddd MMMM Do YYYY [at] hh:mm A'
     });
     return(
-      <div className={"item col-xs-12 " + this.state.status}>
+      <div className={"item " + this.props.className + " " + this.state.status}>
         <div className="tab-container row">
           {this.getTags()}
         </div>
@@ -236,7 +236,8 @@ Item.defaultProps = {
   status     : '',
   categories : [],
   deleteItem : AppHelper.notInitialized,
-  editItem   : AppHelper.notInitialized
+  editItem   : AppHelper.notInitialized,
+  className  : ""
 };
 Item.propTypes = {
   id         : React.PropTypes.string.isRequired,
