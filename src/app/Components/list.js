@@ -9,6 +9,7 @@ class List extends React.Component{
     super(props);
     this.state = {
       activeOption: 'deadline',
+      showList: true,
     }
   }
 
@@ -39,18 +40,41 @@ class List extends React.Component{
     return items;
   }
 
-  render(){
+  toggleList(){
+    this.setState({showList: !this.state.showList});
+  }
+
+  showList(){
     let items = this.getItemsToShow();
+    let text = items.length > 0 ? "" : "Everything's done!";
+    if (this.state.showList){
+      return[
+        <p>{items.length > 0 ? "" : "Everything's done!"}</p>,
+        <Pagination className="col-xs-12" items={items} itemsPerPage={this.props.itemsPerPage} currentPage={this.props.currentPage}
+          changeNumberItemsPerPage={this.props.changeNumberItemsPerPage}
+          updateCurrentPage={this.props.updateCurrentPage}
+        />
+      ];
+    }
+    else
+      return '';
+  }
+
+  getToggleButton(){
+    let text = this.state.showList ? "-" : "+";
+
+    return <button className="btn basic pull-right rounded" type="button" onClick={this.toggleList.bind(this)}>{text}</button>
+      ;
+  }
+
+  render(){
     return(
       <div className={"list " + this.props.className}>
         <div className='col-xs-12 list-container'>
+          {this.getToggleButton()}
           <h5>Items:</h5>
           <hr/>
-          {items.length > 0 ? "" : "Everything's done!"}
-          <Pagination className="col-xs-12" items={items} itemsPerPage={this.props.itemsPerPage} currentPage={this.props.currentPage}
-            changeNumberItemsPerPage={this.props.changeNumberItemsPerPage}
-            updateCurrentPage={this.props.updateCurrentPage}
-          />
+          {this.showList()}
         </div>
       </div>
     );

@@ -43,19 +43,15 @@ class Filter extends React.Component{
     event.preventDefault();
     this.handleOnClick();
   }
-  triggerShowForm(){
-    this.setState({showForm: true});
-  }
-
-  closeForm(){
-    this.setState({showForm: false});
+  toggleShowForm(){
+    this.setState({showForm: !this.state.showForm});
   }
 
   getNewCategory(){
     if (this.state.showForm)
       return[
-        <button className="btn" type="button" onClick={this.closeForm.bind(this)}>
-          <span className="glyphicon glyphicon-minus"/>
+        <button className="btn basic pull-right rounded" type="button" onClick={this.toggleShowForm.bind(this)}>
+          -
         </button>,
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
@@ -70,8 +66,8 @@ class Filter extends React.Component{
 
 
       return(
-        <button className="btn" type="button" onClick={this.triggerShowForm.bind(this)}>
-          <span className="glyphicon glyphicon-plus"/>
+        <button className="btn basic pull-right rounded" type="button" onClick={this.toggleShowForm.bind(this)}>
+          +
         </button>
       );
     }

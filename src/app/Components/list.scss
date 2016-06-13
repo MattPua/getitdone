@@ -2,7 +2,6 @@
 .list .list-container{
   background-color: $primary-background;
   border: 1px solid $primary-border;
-  min-height: 300px;
   padding-top: 5px;
   @include container-box-shadow();
 }

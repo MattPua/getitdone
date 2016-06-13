@@ -81,5 +81,5 @@
 }
 
 @mixin light-box-shadow(){
-  @include box-shadow(0,2px,9px, rgba(0,0,0,0.12),false);
+  @include box-shadow(0,2px,4px, rgba(0,0,0,0.12),false);
 }

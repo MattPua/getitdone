@@ -36,3 +36,18 @@ button.btn.active:focus{
 .btn-group{
   margin: 0 5px;
 }
+
+.btn.rounded {
+  border-radius: 50%;
+}
+
+.btn.basic{
+  background-color: $no-highlight;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27);
+}
+.btn.basic:hover,.btn.basic:focus{
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+}
