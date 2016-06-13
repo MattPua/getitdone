@@ -4,7 +4,7 @@
   background-color: $primary;
   color: white;
   padding: 40px 0;
-  
+  position: relative;
   @include container-box-shadow();
 }
 
@@ -37,20 +37,6 @@
 .month-year-container .month-action .action:hover{
   color: black;
   cursor:pointer;
-}
-
-.month-year-container .month-year .count{
-  position: absolute;
-  right: 90px;
-  background-color: white;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  font-family: Helvetica;
-  font-weight: normal;
-  font-size: 12px;
-  top: -5px;
-  color: black;
 }
 
 .day-container{

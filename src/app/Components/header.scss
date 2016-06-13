@@ -6,7 +6,6 @@
   font-family: "angelique-rose";
   background-color: $primary;
   margin-bottom: 15px;
-  @include light-box-shadow();
 }
 
 .page-head h1{
@@ -14,6 +13,7 @@
   color: white;
 }
 @mixin header-tag{
+  @include hide-on-mobile();
   position: absolute;
   content: '';
   width: 0;

@@ -51,6 +51,12 @@
   }
 }
 
+@mixin hide-on-mobile(){
+  @media(max-width: $size-xs-max){
+    display:none;
+  }
+}
+
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;

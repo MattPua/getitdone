@@ -26,15 +26,6 @@ class Calendar extends React.Component{
     }
     return count;
   }
-  // TODO: Combine these two together
-  getItemsDueOnMonth(month,items){
-    let count = 0;
-    for (let item of items){
-      if (Moment(item.deadline).isSame(month,'month'))
-        count++;
-    }
-    return count++;
-  }
 
   getDays(){
     // TODO: Looks pretty ugly
@@ -102,19 +93,17 @@ class Calendar extends React.Component{
   }
   getMonthContainer(){
     let viewButtons = this.getViewButtons();
-    let numDue = this.getItemsDueOnMonth(Moment(this.state.date),this.props.items);
     return(
       <div className="month-year-container col-xs-12">
         <div className="month-action">
-          <span className="prev action" onClick={this.prevMonth.bind(this)}>{'<'}</span>
+          <span className="prev action glyphicon glyphicon-chevron-left" onClick={this.prevMonth.bind(this)}></span>
         </div>
         <div className="month-year">
           <div>{this.state.date.format("MMMM")}</div>
           <div>{this.state.date.format("YYYY")}</div>
-          <span className={numDue>0 ? "count" : ''}>{numDue>0 ? numDue: ''}</span>
         </div>
         <div className="month-action">
-          <span className="next action" onClick={this.nextMonth.bind(this)}>{'>'}</span>
+          <span className="next action glyphicon glyphicon-chevron-right pull-right" onClick={this.nextMonth.bind(this)}></span>
         </div>
         {viewButtons}
       </div>
