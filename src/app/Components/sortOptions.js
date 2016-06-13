@@ -1,6 +1,3 @@
-import React from 'react';
-import UUID from 'node-uuid';
-
 class SortOptions extends React.Component{
   constructor(props){
     super(props);

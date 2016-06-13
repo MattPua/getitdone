@@ -1,18 +1,19 @@
 .btn {
   padding: 5px 20px;
   @include light-box-shadow();
+  background-color: $primary-btn;
+  color: white;
 }
 
-.btn.active{
-  background-color: $primary;
+button.btn.active{
+  background-color: $active-btn;
   color: white;
-  border-color: $primary;
+  border-color: $active-btn;
 }
 
-.btn.primary{
-  background-color: $primary;
+button.btn.active:focus{
   color: white;
-  border-color: $primary;
+  outline: none;
 }
 
 .btn.delete{

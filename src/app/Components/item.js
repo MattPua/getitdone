@@ -113,7 +113,7 @@ class Item extends React.Component{
   getMobileActions(){
     return(
       <div className="btn-group">
-        <button type="button" className="btn primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" className="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           &#9776;
            <span className="caret"></span>
         </button>

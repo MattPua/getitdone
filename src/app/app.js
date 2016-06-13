@@ -45,7 +45,7 @@ class App extends React.Component{
   }
 
   updateActiveCategory(value){
-    this.setState({activeCategory: value});
+    this.setState({activeCategory: value,currentPage: 1});
   }
   
   deleteItem(id){

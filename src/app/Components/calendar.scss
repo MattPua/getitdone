@@ -41,6 +41,7 @@
 
 .day-container{
   background-color: #DDDDDD;
+  min-height: 280px;
   @include container-box-shadow();
 }
 
@@ -49,6 +50,9 @@
   text-align: center;
   display:inline-block;
   padding: 10px 0;
+  @media(max-width: $size-xs-max){
+    font-size: 10px;
+  }
 }
 
 .day-container .day-names{

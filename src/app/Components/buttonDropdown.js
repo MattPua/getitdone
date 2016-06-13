@@ -13,8 +13,8 @@ class ButtonDropdown extends React.Component{
 
     return(
       <div className="btn-group">
-        <button type="button" className="btn primary">{this.props.activeItem}</button>
-        <button type="button" className="dropdown-toggle btn primary" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+        <button type="button" className="btn">{this.props.activeItem}</button>
+        <button type="button" className="dropdown-toggle btn" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
           <span className="caret"></span>
           <span className="sr-only">Toggle Dropdown</span>
         </button>
