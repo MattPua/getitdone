@@ -8,11 +8,11 @@ class Pagination extends React.Component{
     let value = event.target.value;
     let endPage = Math.ceil(this.props.items.length / this.props.itemsPerPage);
     if (value == "+1" && this.props.currentPage < endPage){
-      this.props.updateCurrentPage(this.props.currentPage+1);
+      this.props.updateCurrentPage(parseInt(this.props.currentPage)+1);
       return;
     }
     else if (value == "-1" && this.props.currentPage > 1){
-      this.props.updateCurrentPage(this.props.currentPage-1);
+      this.props.updateCurrentPage(parseInt(this.props.currentPage)-1);
       return;
     }
     else if (value!="-1" && value!="+1")

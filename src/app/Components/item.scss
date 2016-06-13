@@ -1,7 +1,8 @@
 @import '../other/main';
 .item {
   margin: 10px 0;
-  border: 1px solid black;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
   padding: 5px;
   border-radius: 5px;
   position: relative;

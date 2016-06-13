@@ -1,5 +1,7 @@
+@import '../other/main';
 .list .list-container{
-  border: 2px solid gray;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
   min-height: 300px;
   padding-top: 5px;
 }

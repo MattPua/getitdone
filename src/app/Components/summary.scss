@@ -18,7 +18,8 @@
 }
 
 .summary-container {
-  border: 1px solid;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
 }
 .summary-container .tag {
   border: 1px solid;

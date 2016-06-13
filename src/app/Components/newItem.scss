@@ -1,6 +1,7 @@
+@import '../other/main';
 .new-item-container{
-  border: 2px solid gray;
-  margin-bottom: 5px;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
   padding-top: 5px;
   padding-bottom: 10px;
 }

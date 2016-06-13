@@ -1,5 +1,6 @@
+@import '../other/main';
 .filter-container{
-  border: 1px solid black;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
   padding: 10px 0;
-  margin-bottom: 5px;
 }
