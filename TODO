@@ -1,10 +1,8 @@
 Integrate with GCal
-Tags
 Better animatinos for Add/Deleting
 JSON file storage
 Server Storage
 Priority
-Filter calendar by project
 Add images to tasks
 
 Figure out how to use WebPack-Bootstrap
@@ -16,7 +14,6 @@ set propTypes and defaultProps for everything
 Switch to agenda view
 
 error handling
-Looks like the positioning of count in the bubbles in calendar are slightly off for some
 
 
 subtasks
@@ -43,3 +40,5 @@ Edit button on the top next item doesnt trigger update on items list
 make the category/tags into their own thing
 
 fix bug where sass importing same files multiple times
+
+figure out how to not make the auto scroll for long task names stupid looking

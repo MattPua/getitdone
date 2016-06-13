@@ -134,8 +134,8 @@ class Item extends React.Component{
 
   getActions(){
     return(
-      <span className="actions col-xs-3">
-{/*        <div className="standard">
+      <div className="actions">
+        <div className="standard">
           <button type="button" className="btn complete" onClick={this.completeItem.bind(this)} value={this.state.status}>
             <span className="glyphicon glyphicon-ok"/>
           </button>
@@ -145,9 +145,9 @@ class Item extends React.Component{
           <button type="button" className="btn delete " onClick={this.deleteItem.bind(this)}  value={this.props.id}>
             <span className="glyphicon glyphicon-remove"/>
           </button>
-        </div>*/}
-        {this.getMobileActions()}
-      </span>
+        </div>
+        {/*this.getMobileActions()*/}
+      </div>
     );
   }
 
@@ -183,11 +183,12 @@ class Item extends React.Component{
               </span>
             </div>
           </div>
+          <button type="submit" onClick={this.toggleEditMode.bind(this)} className="hidden" />
         </form>
       ];
     else
       returnValue = (
-        <div className="col-xs-9 details">
+        <div className="col-xs-12 details">
           <span className="text">{this.state.text}</span>
         </div>
       );
@@ -216,8 +217,8 @@ class Item extends React.Component{
           {this.getTags()}
         </div>
         <div className="detail-container row">
-          {details}
           {actions}
+          {details}
         </div>
         <div className="deadline row">
           <p className="col-xs-12">Due: {date}</p>
