@@ -60,3 +60,9 @@
   @include tag-color($primary);
   color: white;
 }
+
+.summary-container .highlights{
+  @media(max-width: $size-xs-max){
+    padding-left: 20px;
+  }
+}

@@ -56,12 +56,12 @@ class Summary extends React.Component{
     return(
       <div className="summary-details">
         <p className="total-due">You have {itemsDue.length} items due:</p>
-        <ul>
+        <ul className="highlights">
           {dueTodayText}
           {dueThisWeekText}
           {overDueText}
         </ul>
-        {nextDue}        
+        {/*nextDue*/}        
 
 
       </div>
