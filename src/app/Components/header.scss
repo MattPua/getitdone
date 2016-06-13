@@ -6,31 +6,30 @@
   font-family: "angelique-rose";
   background-color: $primary;
   margin-bottom: 15px;
+  @include light-box-shadow();
 }
 
 .page-head h1{
   font-size: 48px;
   color: white;
 }
-
-.page-head:before{
+@mixin header-tag{
   position: absolute;
   content: '';
   width: 0;
   height: 0;
-  left: 0;
   top: -0.6px;
   border: 44px solid white;
-  border-right: 30px solid transparent;
+}
+
+.page-head:before{
+  left: 0;
+  @include header-tag();
+  border-right: 20px solid transparent;
 }
 
 .page-head:after{
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 0;
   right: 0;
-  top: -0.6px;
-  border: 44px solid white;
-  border-left: 30px solid transparent;
+  @include header-tag();
+  border-left: 20px dotted transparent;
 }
