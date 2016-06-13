@@ -7,7 +7,8 @@ class Filter extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      newCategory: ''
+      newCategory: '',
+      showForm: false
     };
   }
 
@@ -16,8 +17,15 @@ class Filter extends React.Component{
     this.setState({newCategory: event.target.value});
   }
 
+  componentDidUpdate(prevProps,prevState){
+    // TODO: Add animations for changing
+  }
+
   handleOnClick(){
+
     var newCategory = this.state.newCategory;
+    if (newCategory == null || newCategory == '') return;
+
     // Check if value belongs to existing category
     let foundCategory = $.grep(this.props.categories,function(e){
       return newCategory.toLowerCase() == e.toLowerCase();
@@ -28,7 +36,45 @@ class Filter extends React.Component{
 
     this.props.saveNewCategory(newCategory);
 
-    this.setState({newCategory: ''});
+    this.setState({newCategory: '',showForm: false});
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    this.handleOnClick();
+  }
+  triggerShowForm(){
+    this.setState({showForm: true});
+  }
+
+  closeForm(){
+    this.setState({showForm: false});
+  }
+
+  getNewCategory(){
+    if (this.state.showForm)
+      return[
+        <button className="btn" type="button" onClick={this.closeForm.bind(this)}>
+          <span className="glyphicon glyphicon-minus"/>
+        </button>,
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div className="input-group">
+            <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
+            <span className="input-group-btn">
+              <button className="btn" type="submit" onClick={this.handleOnClick.bind(this)}>Save Category</button>
+            </span>
+          </div>
+        </form>
+      ];
+    else{
+
+
+      return(
+        <button className="btn" type="button" onClick={this.triggerShowForm.bind(this)}>
+          <span className="glyphicon glyphicon-plus"/>
+        </button>
+      );
+    }
   }
 
   render(){
@@ -41,14 +87,7 @@ class Filter extends React.Component{
             items={this.props.categories.sort()} 
             activeItem={this.props.activeCategory} 
             handleOnClick={this.props.updateActiveCategory}/>
-          <form TODO>
-            <div className="input-group">
-              <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
-              <span className="input-group-btn">
-                <button className="btn" type="submit" onClick={this.handleOnClick.bind(this)}>New Category...</button>
-              </span>
-            </div>
-          </form>
+          {this.getNewCategory()}
         </div>
       </div>
     );
