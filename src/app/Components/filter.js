@@ -1,6 +1,7 @@
 import UUID from 'node-uuid';
 import ButtonDropDown from './buttonDropDown';
 import AppHelper from '../other/AppHelper';
+import ToggleSectionButton from './ToggleSectionButton';
 require('./filter.scss');
 
 class Filter extends React.Component{
@@ -49,10 +50,7 @@ class Filter extends React.Component{
 
   getNewCategory(){
     if (this.state.showForm)
-      return[
-        <button className="btn basic pull-right rounded" type="button" onClick={this.toggleShowForm.bind(this)}>
-          -
-        </button>,
+      return(
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
@@ -61,16 +59,7 @@ class Filter extends React.Component{
             </span>
           </div>
         </form>
-      ];
-    else{
-
-
-      return(
-        <button className="btn basic pull-right rounded" type="button" onClick={this.toggleShowForm.bind(this)}>
-          +
-        </button>
       );
-    }
   }
 
   render(){
@@ -83,6 +72,7 @@ class Filter extends React.Component{
             items={this.props.categories.sort()} 
             activeItem={this.props.activeCategory} 
             handleOnClick={this.props.updateActiveCategory}/>
+          <ToggleSectionButton isShown={this.state.showForm} toggle={this.toggleShowForm.bind(this)} />
           {this.getNewCategory()}
         </div>
       </div>

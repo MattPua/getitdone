@@ -3,6 +3,7 @@ import SortOptions from './sortOptions';
 import AppHelper from '../other/AppHelper';
 import Moment from 'moment';
 import Pagination from './pagination';
+import ToggleSectionButton from './toggleSectionButton';
 require('./list.scss');
 class List extends React.Component{
   constructor(props){
@@ -59,19 +60,11 @@ class List extends React.Component{
     else
       return '';
   }
-
-  getToggleButton(){
-    let text = this.state.showList ? "-" : "+";
-
-    return <button className="btn basic pull-right rounded" type="button" onClick={this.toggleList.bind(this)}>{text}</button>
-      ;
-  }
-
   render(){
     return(
       <div className={"list " + this.props.className}>
         <div className='col-xs-12 list-container'>
-          {this.getToggleButton()}
+          <ToggleSectionButton isShown={this.state.showList} toggle={this.toggleList.bind(this)}/>
           <h5>Items:</h5>
           <hr/>
           {this.showList()}
