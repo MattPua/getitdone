@@ -6,3 +6,11 @@
   min-width: 30px;
 }
 
+.pagination .items-per-page{
+  display: inline;
+  margin-left: 20px;
+}
+
+.pagination .items-per-page label {
+  margin-right: 5px;
+}

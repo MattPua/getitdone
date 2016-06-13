@@ -9,8 +9,7 @@ class List extends React.Component{
     super(props);
     this.state = {
       activeOption: 'deadline',
-      itemsPerPage: 5
-    };
+    }
   }
 
   updateActiveOption(value){
@@ -48,7 +47,8 @@ class List extends React.Component{
           <h5>Items:</h5>
           <hr/>
           {items.length > 0 ? "" : "Everything's done!"}
-          <Pagination className="col-xs-12" items={items} itemsPerPage={this.state.itemsPerPage} currentPage={this.props.currentPage}
+          <Pagination className="col-xs-12" items={items} itemsPerPage={this.props.itemsPerPage} currentPage={this.props.currentPage}
+            changeNumberItemsPerPage={this.props.changeNumberItemsPerPage}
             updateCurrentPage={this.props.updateCurrentPage}
           />
         </div>

@@ -15,8 +15,9 @@ class App extends React.Component{
       activeCategory: 'all',
       items: [],
       categories: ['All'],
-      currentPage: 1
-    }
+      currentPage: 1,
+      itemsPerPage: 5
+    };
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -111,6 +112,10 @@ class App extends React.Component{
     this.setState({currentPage: value});
   }
 
+  changeNumberItemsPerPage(value){
+    this.setState({itemsPerPage: value});
+  }
+
   render(){
     return (
       <div className="container">
@@ -125,7 +130,8 @@ class App extends React.Component{
               saveNewCategory={this.updateCategoriesList.bind(this)}
             />
           <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
-          <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage}
+          <List className="col-xs-12 col-md-6" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage} itemsPerPage={this.state.itemsPerPage}
+          changeNumberItemsPerPage={this.changeNumberItemsPerPage.bind(this)}
           updateCurrentPage={this.updateCurrentPage.bind(this)}
           deleteItem={this.deleteItem.bind(this)}
           editItem={this.editItem.bind(this)}
