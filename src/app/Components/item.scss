@@ -6,6 +6,7 @@
   padding: 5px;
   border-radius: 5px;
   position: relative;
+  @include light-box-shadow();
 }
 
 .item .tab {
@@ -39,32 +40,9 @@
   color: $primary-failure;
 }
 
-/* .item .text:not(input) {
-  width: 50%;
-  display:inline-block;
-}
-.item .category:not(input){
-  width: 5%;
-  display:inline-block;
-}
-.item .deadline:not(input) {
-  width: 20%;
-  display:inline-block;
-}
-.item .actions{
-  width: 20%;
-} */
-
-/* .item .actions .standard {
-  float: right;
-  @media (max-width: $size-xs-max){
-    display: none;
-  }
-} */
 
 .item .actions .btn-group{
   float: right;
-  // @include hide-not-mobile();
 }
 .item form {
   @media (min-width: 768px){

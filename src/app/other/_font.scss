@@ -3,10 +3,15 @@
 // FONT FAMILIES
 @include font-face("libel-suit-rg", "/public/fonts/libel-suit/libel-suit-rg", $weight: normal, $style: normal);
 @include font-face("teen-regular", "/public/fonts/teen-regular/teen-regular", $weight: normal, $style: normal);
+@include font-face('angelique-rose','/public/fonts/angelique-rose/angelique-rose',$weight: normal, $style:normal);
 
 
 // END FONT FAMILIES
 
 div {
   font-family: 'teen-regular', Helvetica, Arial;
+}
+
+h1,h2,h3,h4,h5{
+  font-family: "angelique-rose","teen-regular",Helvetica;
 }

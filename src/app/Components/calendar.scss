@@ -4,7 +4,8 @@
   background-color: $primary;
   color: white;
   padding: 40px 0;
-
+  
+  @include container-box-shadow();
 }
 
 .month-year-container .month-year{
@@ -54,6 +55,7 @@
 
 .day-container{
   background-color: #DDDDDD;
+  @include container-box-shadow();
 }
 
 .day-container .day-name{

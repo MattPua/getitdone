@@ -1,5 +1,3 @@
-import React from 'react';
-import Moment from 'moment';
 require('./header.scss');
 
 class Header extends React.Component {
@@ -7,14 +5,10 @@ class Header extends React.Component {
     super(props);
   }
 
-/*  shouldComponentUpdate(nextProps,nextState){
-    // return false;
-  }*/
-
   render(){
     return(
-      <div className={"page-header " + this.props.className}>
-        <h2 class='col-xs-12'>Get It Done</h2>
+      <div className={"page-head " + this.props.className}>
+        <h1 class='col-xs-12'>Get It Done</h1>
       </div>
     );
   }

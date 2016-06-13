@@ -3,4 +3,5 @@
   background-color: $primary-background;
   border: 1px solid $primary-border;
   padding: 10px 0;
+  @include container-box-shadow();
 }

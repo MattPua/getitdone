@@ -1,4 +1,15 @@
-.page-header {
+@import '../other/main';
+
+.page-head {
   text-align: center;
   margin-top: 10px;
+  font-family: "angelique-rose";
+  background-color: $primary;
+  @include header-box-shadow();
+  margin-bottom: 15px;
+}
+
+.page-head h1{
+  font-size: 48px;
+  color: white;
 }

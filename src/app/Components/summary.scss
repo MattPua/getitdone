@@ -9,6 +9,7 @@
 }
 
 .summary .time{
+  padding-top: 10px;
   font-size: 25px;
   text-align: center;
 }
@@ -20,12 +21,13 @@
 .summary-container {
   background-color: $primary-background;
   border: 1px solid $primary-border;
+  @include container-box-shadow();
 }
 .summary-container .tag {
   border: 1px solid;
   list-style: none;
   width: 170px;
-  padding: 4px 6px;
+  padding: 4px 6px 3px 6px;
   position:relative;
   display: inline;
   margin: 5px 0;
@@ -34,6 +36,7 @@
     display: block;
     padding: 2.4px 6px;
   }
+  @include tag-box-shadow();
 }
 .summary-container .tag:before{
   position: absolute;
@@ -41,7 +44,7 @@
   width: 0;
   height: 0;
   left: 0;
-  top: -0.5px;
+  top: -0.6px;
   margin-left: -25px;
   border: 13px solid;
   border-left: 13px solid transparent;

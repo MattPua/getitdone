@@ -1,4 +1,4 @@
-.pagination .pages {
+.a-pagination .pages {
   display: inline-block;
   border: 1px solid;
   padding: 4px 10px;
@@ -7,19 +7,19 @@
   width: 30px;
 }
 
-.pagination .items-per-page{
+.a-pagination .items-per-page{
   display: inline;
   margin-left: 20px;
 }
 
-.pagination .items-per-page label {
+.a-pagination .items-per-page label {
   margin-right: 5px;
 }
 
-.pagination .prev, .pagination .next {
+.a-pagination .prev, .a-pagination .next {
   font-size: 14px;
 }
 
-.pagination .pages span {
+.a-pagination .pages span {
   right: 2px;
 }

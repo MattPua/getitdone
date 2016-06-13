@@ -1,6 +1,7 @@
 import Moment from 'moment';
 import './summary.scss';
 import Item from './item';
+import Header from './header';
 class Summary extends React.Component{
   constructor(props){
     super(props);
@@ -71,6 +72,7 @@ class Summary extends React.Component{
     return(
       <div className={"summary " + this.props.className}>
         <div className="summary-container col-xs-12">
+          <Header text="Get It Done" className="col-xs-12"/>
           <p className="time">{this.state.datetime.format("hh:mm A")}</p>
           <p className="date">{this.state.datetime.format("dddd MMMM Do, YYYY")}</p>
           <br/>

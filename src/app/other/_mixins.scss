@@ -50,3 +50,30 @@
     display: none;
   }
 }
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+
+@mixin container-box-shadow(){
+  @include box-shadow(0,19px,38px,rgba(0,0,0,0.50),false);
+} 
+@mixin tag-box-shadow(){
+  @include box-shadow(0,3px,8px,rgba(0,0,0,0.2),false);
+}
+@mixin header-box-shadow(){
+  @include box-shadow(0,4px,2px,rgba(134, 134, 134, 0.19),false);
+}
+
+@mixin light-box-shadow(){
+  @include box-shadow(0,1px,3px, rgba(0,0,0,0.12),false);
+}

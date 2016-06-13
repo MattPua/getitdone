@@ -33,6 +33,7 @@ class Pagination extends React.Component{
     let pages = [];
     let disabledBack = this.props.currentPage == 1 ? "disabled" : '';
     let disabledNext = this.props.currentPage == endPage ? "disabled" : '';
+    if (!endPage) return [];
     pages.push(
       <button type="button" className="btn pages prev" onClick={this.handlePageChange.bind(this)} value="-1" disabled={disabledBack}> <span className="glyphicon glyphicon-menu-left" value="-1"/> </button>
     );
@@ -69,6 +70,7 @@ class Pagination extends React.Component{
 
   changeNumItemsPerPage(){
     // TODO: Add all option?
+    if (!this.props.items.length) return;
     return(
       <form className="form-inline items-per-page">
         <div className="form-group">
@@ -90,13 +92,13 @@ class Pagination extends React.Component{
 
 
     return(
-      <div className={"pagination " + this.props.className}> 
-        <div className="pagination-container">
+      <div className={"a-pagination " + this.props.className}> 
+        <div className="pagination-container row">
           {this.numItemsDisplay()}
           {this.changeNumItemsPerPage()}
           {this.getPageNumbers()}
         </div>
-        <div className="items">
+        <div className="items row">
           {this.displayItems()}
         </div>
       </div>
