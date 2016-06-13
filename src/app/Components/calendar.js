@@ -21,6 +21,9 @@ class Calendar extends React.Component{
   getItemsDueOnDay(day,items){
     let count = 0;
     for (let item of items){
+      if (this.props.activeCategory.toLowerCase() != 'all' && this.props.activeCategory.toLowerCase() != item.category.toLowerCase())
+        continue;
+
       if (Moment(item.deadline).isSame(day,'day'))
         count++;
     }

@@ -137,7 +137,7 @@ class App extends React.Component{
           editItem={this.editItem.bind(this)}
           saveItem={this.saveItem.bind(this)}
           />
-          <Calendar className="col-xs-12" items={this.state.items} />
+          <Calendar className="col-xs-12" items={this.state.items} activeCategory={this.state.activeCategory}/>
         </div>
       </div>
     );
