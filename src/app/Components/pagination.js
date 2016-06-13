@@ -5,7 +5,18 @@ class Pagination extends React.Component{
   }
 
   handlePageChange(event){
-    this.props.updateCurrentPage(event.target.value);
+    let value = event.target.value;
+    let endPage = Math.ceil(this.props.items.length / this.props.itemsPerPage);
+    if (value == "+1" && this.props.currentPage < endPage){
+      this.props.updateCurrentPage(this.props.currentPage+1);
+      return;
+    }
+    else if (value == "-1" && this.props.currentPage > 1){
+      this.props.updateCurrentPage(this.props.currentPage-1);
+      return;
+    }
+    else if (value!="-1" && value!="+1")
+      this.props.updateCurrentPage(value);
   }
 
   displayItems(){
@@ -20,6 +31,11 @@ class Pagination extends React.Component{
     let index = 1;
     let endPage = Math.ceil(this.props.items.length / this.props.itemsPerPage);
     let pages = [];
+    let disabledBack = this.props.currentPage == 1 ? "disabled" : '';
+    let disabledNext = this.props.currentPage == endPage ? "disabled" : '';
+    pages.push(
+      <button type="button" className="btn pages" onClick={this.handlePageChange.bind(this)} value="-1" disabled={disabledBack}> <span className="glyphicon glyphicon-menu-left" value="-1"/> </button>
+    );
     while(index <= endPage){
       let className='';
       if (index == this.props.currentPage)
@@ -29,6 +45,9 @@ class Pagination extends React.Component{
       );
       index++;
     }
+    pages.push(
+      <button type="button" className="btn pages" onClick={this.handlePageChange.bind(this)} value="+1" disabled={disabledNext}> <span className="glyphicon glyphicon-menu-right" value="+1"/> </button>
+    );
     pages.reverse();
 
     return pages;
@@ -56,7 +75,7 @@ class Pagination extends React.Component{
           </label>
           <select className="form-control" name="itemsPerPage" onChange={this.handleItemsPerPageChange.bind(this)} value={this.props.itemsPerPage}>
             <option value={1}>1</option>
-            <option value={3}>4</option>
+            <option value={3}>3</option>
             <option value={5}>5</option>
             <option value={10}>10</option>
           </select>
