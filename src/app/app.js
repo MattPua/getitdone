@@ -9,6 +9,7 @@ import Summary from './Components/summary';
 import ExternalScripts from './Components/externalScripts';
 import StorageWrapper from './other/storageWrapper';
 import C from './other/_constants';
+import AppHelper from './other/apphelper';
 import './other/main.scss';
 import './app.scss';
 import _ from 'underscore';
@@ -45,24 +46,23 @@ class App extends React.Component{
     }
     else if (this.state.fileStorageType == C.FileStorageType.FIREBASE){
       callback = (function(data){
+        let obj = {};
+
         // TODO: Holy this is ugly
         for(let i in data){
+          let key = i;
+          let val = data[i];
           if (i == 'items'){
-            let itemsArray = [];
-            for (let j in data[i])
-              itemsArray.push(data[i][j]);
-            this.setState({items: itemsArray});
-            continue;
+            key = 'items';
+            val = AppHelper.convertArrayFromFirebase(data,'items');
           }
           else if (i == 'categories'){
-            let categoriesArray = [];
-            for (let j in data[i])
-              categoriesArray.push(data[i][j]);
-            this.setState({categories: categoriesArray});
-            continue;
+            key = 'categories';
+            val = AppHelper.convertArrayFromFirebase(data,'categories');
           }
-          this.setState({i: data[i]});
+          obj[key]=val;
         }
+        this.setState(obj);
       }).bind(this);
     }
     let data = StorageWrapper.getInitialData(this.  state.fileStorageType,this.state,callback);
