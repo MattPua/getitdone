@@ -42,3 +42,5 @@ fix bug where sass importing same files multiple times
 figure out how to not make the auto scroll for long task names stupid looking
 
 figure out better way to do the path variables for the fonts file
+
+Favicon

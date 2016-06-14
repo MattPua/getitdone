@@ -1,6 +1,5 @@
-3 Modes of Saving Data:
+2 Modes of Saving Data:
 * File storage on Firebase
-* Local JSON File
 * Brower Cache
 
 Not Tested on Other Browsers

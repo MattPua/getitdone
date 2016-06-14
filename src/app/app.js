@@ -10,38 +10,73 @@ import './app.scss';
 class App extends React.Component{
   constructor(props){
     super(props);
-    console.log(window.localStorage.getItem('GetItDone'));
     this.state = {
       activeCategory: 'all',
       items: [],
       categories: ['All'],
       currentPage: 1,
-      itemsPerPage: 4
+      itemsPerPage: 4,
+      fileStorageType: 'cache',
     };
   }
 
   componentDidUpdate(prevProps,prevState){
-    window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
+    this.saveData();
   }
 
   componentDidMount(){
-    // Check if LocalStorage "GetItDone" exists, if not , create
-    if (window.localStorage.getItem("GetItDone") != null)
-      this.refreshItems();
-    else
-      window.localStorage.setItem("GetItDone",
-        JSON.stringify(this.state)
-      );
-
+    this.getInitialData();
     // TODO: Set timeout to refresh
   }
+  getInitialData(){
+    if (this.state.fileStorageType == 'cache'){
+      // Check if LocalStorage "GetItDone" exists, if not , create
+      if (window.localStorage.getItem("GetItDone") != null)
+        this.getData();
+      else
+        window.localStorage.setItem("GetItDone",
+          JSON.stringify(this.state)
+        );
+      console.log(window.localStorage.getItem('GetItDone'));
+    }
+/*    else if (this.state.fileStorageType == 'json'){
+      this.getData();
+    }*/
+    else{}
+  }
 
-  refreshItems(){
-    let localStorage = JSON.parse(window.localStorage.getItem("GetItDone"));
+  getData(){
+    if (this.state.fileStorageType=='cache'){
+      let localStorage = JSON.parse(window.localStorage.getItem("GetItDone"));
+      // TODO: Loop this over elements names
+      this.setState({items:  localStorage.items, categories: localStorage.categories });
+    }
+/*    else if (this.state.fileStorageType=='json'){
+      $.ajax({
+        url: '/public/data.json',
+        success: function(data){
+          console.info(data);
+          for (let key in data){
+            this.setState({key: data[key]});
+          }
+        },
+        error: function(err){
+          console.error(err);
+        }
+      });
+    }*/
+    else{
 
-    // TODO: Loop this over elements names
-    this.setState({items:  localStorage.items, categories: localStorage.categories });
+    }
+  }
 
+  saveData(){
+    if (this.state.fileStorageType == 'cache')
+      window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
+/*    else if (this.state.fileStorageType == 'json')
+      console.log(JSON.stringify(this.state));*/
+    else
+      console.log('else');
   }
 
   updateActiveCategory(value){
