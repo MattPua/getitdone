@@ -26,6 +26,7 @@ class Item extends React.Component{
 
   componentDidUpdate(prevProps,prevState){
     //TODO: Maybe just compare states?
+    //TODO: Figure out better way to save it only on form submits
     if (prevState.status != this.state.status
       || prevState.text != this.state.text 
       || prevState.category != this.state.category
@@ -209,8 +210,8 @@ class Item extends React.Component{
 
   // Convert the item to a proper JSON format
   static convertToJSON(item){
-    let object = item;
-    object.deadline = item.deadline.toString();
+    let object = item.state;
+    object.deadline = item.state.deadline.toString();
     return object;
   }
 

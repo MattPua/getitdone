@@ -2,6 +2,7 @@ import moment from 'moment';
 import UUID from 'node-uuid';
 import AppHelper from './../other/AppHelper';
 import ToggleSectionButton from './toggleSectionButton';
+import Item from './item';
 import 'eonasdan-bootstrap-datetimepicker';
 import './newItem.scss';
 
@@ -13,7 +14,7 @@ class NewItem extends  React.Component{
       text: '',
       category: this.props.categories[0],
       status: 'incomplete',
-      showForm: true
+      showForm: true,
     };
   }
 
@@ -30,7 +31,6 @@ class NewItem extends  React.Component{
     let deadline = $(this.refs.deadline).val();
     if (this.state.text == '' || deadline == '' || deadline == null) return;
 
-    let currentDate = moment().format();
     let item = {
       id: this.state.id,
       text: this.state.text,
@@ -39,8 +39,16 @@ class NewItem extends  React.Component{
       status: 'incomplete'
     };
 
+
     this.props.saveNewItem(item);
     this.setState({text: '', id: UUID.v4()});
+  }
+
+  // Convert the item to a proper JSON format
+  static convertToJSON(item){
+    let object = item;
+    object.deadline = item.deadline.toString();
+    return object;
   }
 
   componentDidMount(){
