@@ -5,10 +5,13 @@ class StorageWrapper {
       // Check if LocalStorage "GetItDone" exists, if not , create
       if (window.localStorage.getItem("GetItDone") != null)
         return StorageWrapper.getData(storageType);
-      else
+      else{
         window.localStorage.setItem("GetItDone",
           JSON.stringify(state)
         );
+        return StorageWrapper.getData(storageType);
+      }
+
     }
     else if (storageType == 'firebase'){
       FirebaseWrapper.watchNode('/',function(data){
@@ -28,9 +31,9 @@ class StorageWrapper {
     else console.error("invalid filestorage type!");
   }
 
-  static saveData(storageType){
+  static saveData(storageType,state){
     if (storageType == 'cache')
-      window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
+      window.localStorage.setItem("GetItDone",JSON.stringify(state));
     else if (storageType == 'firebase'){
     }
     else console.error("invalid filestorage type!");

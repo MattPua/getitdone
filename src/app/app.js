@@ -23,7 +23,7 @@ class App extends React.Component{
   }
 
   componentDidUpdate(prevProps,prevState){
-    StorageWrapper.saveData(this.state.fileStorageType);
+    StorageWrapper.saveData(this.state.fileStorageType,this.state);
   }
 
   componentDidMount(){
@@ -32,7 +32,7 @@ class App extends React.Component{
   }
 
   getInitialData(){
-    let data = StorageWrapper.getInitialData(this.  state.fileStorageType);
+    let data = StorageWrapper.getInitialData(this.  state.fileStorageType,this.state);
     if (this.state.fileStorageType == 'cache'){
       // TODO: Loop this over elements names
       this.setState({items:  data.items, categories: data.categories });
