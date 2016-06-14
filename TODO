@@ -35,12 +35,10 @@ Add styling to completed
 Rebuild grid sizes
 
 
-Edit button on the top next item doesnt trigger update on items list
-
 make the category/tags into their own thing
 
 fix bug where sass importing same files multiple times
 
 figure out how to not make the auto scroll for long task names stupid looking
 
-day/month mode
+figure out better way to do the path variables for the fonts file
