@@ -1,0 +1,25 @@
+.a-pagination .pages {
+  display: inline-block;
+  border: 1px solid;
+  padding: 4px 10px;
+  float: right;
+  max-width: 30px;
+  width: 30px;
+}
+
+.a-pagination .items-per-page{
+  display: inline;
+  margin-left: 20px;
+}
+
+.a-pagination .items-per-page label {
+  margin-right: 5px;
+}
+
+.a-pagination .prev, .a-pagination .next {
+  font-size: 14px;
+}
+
+.a-pagination .pages span {
+  right: 2px;
+}

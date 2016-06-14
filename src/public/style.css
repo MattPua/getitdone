@@ -1,0 +1,1009 @@
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.page-head {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "angelique-rose";
+  background-color: #1ABC9C;
+  margin-bottom: 15px; }
+
+.page-head h1 {
+  font-size: 48px;
+  color: white; }
+
+.page-head:before {
+  left: 0;
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: -0.6px;
+  border: 44px solid white;
+  border-right: 20px solid transparent; }
+  @media (max-width: 767px) {
+    .page-head:before {
+      display: none; } }
+
+.page-head:after {
+  right: 0;
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: -0.6px;
+  border: 44px solid white;
+  border-left: 20px dotted transparent; }
+  @media (max-width: 767px) {
+    .page-head:after {
+      display: none; } }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.item {
+  margin: 10px 0;
+  background-color: white;
+  border: 1px solid #1F1A1E;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); }
+
+.item .tab {
+  border: 1px solid #1ABC9C;
+  padding: 1px 25px;
+  display: inline-block;
+  position: relative;
+  background-color: #1ABC9C;
+  color: white;
+  max-width: 100px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  max-height: 30px; }
+
+.item .tab:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: 6px;
+  border: 4px solid rgba(120, 102, 102, 0.39);
+  right: 2px;
+  padding-bottom: 1px;
+  border-radius: 100%; }
+
+.item.complete {
+  text-decoration: line-through;
+  background-color: gray; }
+
+.item .deadline {
+  border-top: 1px solid; }
+
+.item .deadline p {
+  margin-top: 5px; }
+
+.item .item-container {
+  margin-top: 10px; }
+
+.actions .edit span {
+  color: black; }
+
+.item .actions .btn-group {
+  float: right; }
+
+@media (min-width: 768px) {
+  .item form {
+    display: inline-block; } }
+
+.item .dropdown-menu:before {
+  content: '';
+  border: 5px solid transparent;
+  position: absolute;
+  border-bottom: 7px solid white;
+  top: -10%; }
+
+.item .actions button {
+  width: 50px;
+  height: 16px;
+  font-size: 12px;
+  padding-top: 0;
+  border-radius: 0;
+  margin-bottom: 10px; }
+
+.item .details {
+  margin: 10px 0; }
+.a-pagination .pages {
+  display: inline-block;
+  border: 1px solid;
+  padding: 4px 10px;
+  float: right;
+  max-width: 30px;
+  width: 30px; }
+
+.a-pagination .items-per-page {
+  display: inline;
+  margin-left: 20px; }
+
+.a-pagination .items-per-page label {
+  margin-right: 5px; }
+
+.a-pagination .prev, .a-pagination .next {
+  font-size: 14px; }
+
+.a-pagination .pages span {
+  right: 2px; }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.list .list-container {
+  background-color: white;
+  border: 1px solid #1F1A1E;
+  padding-top: 5px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.month-year-container {
+  background-color: #1ABC9C;
+  color: white;
+  padding: 40px 0;
+  position: relative;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+
+.month-year-container .month-year {
+  text-align: center;
+  width: 50%;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px; }
+
+.month-year-container span {
+  font-size: 20px; }
+
+.month-year-container .month-action {
+  width: 25%;
+  display: inline-block; }
+
+.month-year-container .month-year {
+  position: relative; }
+
+.month-year-container .month-action:nth-child(3) {
+  text-align: right; }
+
+.month-year-container .month-action .action:hover {
+  color: black;
+  cursor: pointer; }
+
+.day-container {
+  background-color: #DDDDDD;
+  min-height: 280px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+
+.day-container .day-name {
+  width: 13.6%;
+  text-align: center;
+  display: inline-block;
+  padding: 10px 0; }
+  @media (max-width: 767px) {
+    .day-container .day-name {
+      font-size: 10px; } }
+
+.day-container .day-names {
+  padding: 10px 0;
+  background-color: white; }
+
+.day-container .day {
+  text-align: center;
+  display: inline-block;
+  width: 13.6%;
+  padding: 10px 0;
+  position: relative; }
+
+.day-container .day .count {
+  position: absolute;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-family: Helvetica;
+  font-weight: normal;
+  font-size: 10px;
+  top: 2px;
+  z-index: 1; }
+
+.day-container .day.past-due .count {
+  background-color: #CC333F;
+  color: white; }
+
+.day-container .day.almost-due .count {
+  background-color: #FBDB57; }
+
+.day-container .today {
+  background-color: #FBDB57;
+  font-weight: bold; }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.filter-container {
+  background-color: white;
+  border: 1px solid #1F1A1E;
+  padding: 10px 0;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.new-item-container {
+  background-color: white;
+  border: 1px solid #1F1A1E;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+.summary .time {
+  padding-top: 10px;
+  font-size: 25px;
+  text-align: center; }
+
+.summary .date {
+  font-size: 20px;
+  text-align: center; }
+
+.summary-container {
+  background-color: white;
+  border: 1px solid #1F1A1E;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5); }
+
+.summary-container .tag {
+  border: 1px solid;
+  list-style: none;
+  width: 170px;
+  padding: 4px 6px 3px 6px;
+  position: relative;
+  display: inline;
+  margin: 5px 0;
+  margin-right: 25px;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
+  @media (max-width: 767px) {
+    .summary-container .tag {
+      display: block;
+      padding: 2.4px 6px; } }
+
+.summary-container .tag:before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 0;
+  top: -0.6px;
+  margin-left: -25px;
+  border: 13px solid;
+  border-left: 13px solid transparent; }
+
+.summary-container .tag.overdue {
+  background-color: #CC333F;
+  border-color: #CC333F;
+  color: white; }
+  .summary-container .tag.overdue:before {
+    border-color: #CC333F;
+    border-left-color: transparent; }
+
+.summary-container .tag.due-week {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+  .summary-container .tag.due-week:before {
+    border-color: #FBDB57;
+    border-left-color: transparent; }
+
+.summary-container .tag.due-today {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+  .summary-container .tag.due-today:before {
+    border-color: #1ABC9C;
+    border-left-color: transparent; }
+
+@media (max-width: 767px) {
+  .summary-container .highlights {
+    padding-left: 20px; } }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+.btn {
+  padding: 5px 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  background-color: #137B67;
+  color: white; }
+
+button.btn.active {
+  background-color: #094F41;
+  color: white;
+  border-color: #094F41; }
+
+button.btn.active:focus {
+  color: white;
+  outline: none; }
+
+.btn.delete {
+  background-color: #CC333F;
+  color: white;
+  border-color: #CC333F; }
+
+.btn.complete {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+  color: white; }
+
+.btn.edit {
+  background-color: #FBDB57;
+  border-color: #FBDB57; }
+
+.btn-group {
+  margin: 0 5px; }
+
+.btn.rounded {
+  border-radius: 50%; }
+
+.btn.basic {
+  background-color: #F9F9F9;
+  color: rgba(0, 0, 0, 0.58);
+  border-color: rgba(0, 0, 0, 0.27); }
+
+.btn.basic:hover, .btn.basic:focus {
+  background-color: white;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold; }
+
+.btn.toggle {
+  padding: 3px 9px; }
+
+@font-face {
+  font-family: "libel-suit-rg";
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot");
+  src: url("/public/fonts/libel-suit/libel-suit-rg.eot?#iefix") format("embedded-opentype"), url("/public/fonts/libel-suit/libel-suit-rg.woff") format("woff"), url("/public/fonts/libel-suit/libel-suit-rg.ttf") format("truetype"), url("/public/fonts/libel-suit/libel-suit-rg.svg#libel-suit-rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "teen-regular";
+  src: url("/public/fonts/teen-regular/teen-regular.eot");
+  src: url("/public/fonts/teen-regular/teen-regular.eot?#iefix") format("embedded-opentype"), url("/public/fonts/teen-regular/teen-regular.woff") format("woff"), url("/public/fonts/teen-regular/teen-regular.ttf") format("truetype"), url("/public/fonts/teen-regular/teen-regular.svg#teen-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "angelique-rose";
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot");
+  src: url("/public/fonts/angelique-rose/angelique-rose.eot?#iefix") format("embedded-opentype"), url("/public/fonts/angelique-rose/angelique-rose.woff") format("woff"), url("/public/fonts/angelique-rose/angelique-rose.ttf") format("truetype"), url("/public/fonts/angelique-rose/angelique-rose.svg#angelique-rose") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+div {
+  font-family: 'teen-regular', Helvetica, Arial; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "angelique-rose","teen-regular",Helvetica; }
+
+#app {
+  background-color: #2FA2B4;
+  padding-bottom: 15px; }

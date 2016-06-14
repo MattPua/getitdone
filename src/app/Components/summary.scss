@@ -1,0 +1,68 @@
+@import '../other/main.scss';
+@mixin tag-color($color){
+  background-color: $color;
+  border-color: $color;
+  &:before {
+    border-color: $color;
+    border-left-color: transparent;
+  }
+}
+
+.summary .time{
+  padding-top: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+.summary .date {
+  font-size: 20px;
+  text-align: center;
+}
+
+.summary-container {
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
+  @include container-box-shadow();
+}
+.summary-container .tag {
+  border: 1px solid;
+  list-style: none;
+  width: 170px;
+  padding: 4px 6px 3px 6px;
+  position:relative;
+  display: inline;
+  margin: 5px 0;
+  margin-right: 25px;
+  @media (max-width: $size-xs-max){
+    display: block;
+    padding: 2.4px 6px;
+  }
+  @include tag-box-shadow();
+}
+.summary-container .tag:before{
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  left: 0;
+  top: -0.6px;
+  margin-left: -25px;
+  border: 13px solid;
+  border-left: 13px solid transparent;
+}
+.summary-container .tag.overdue {
+  @include tag-color($primary-failure);
+  color: white;
+}
+.summary-container .tag.due-week {
+  @include tag-color($primary-warning);
+}
+.summary-container .tag.due-today {
+  @include tag-color($primary);
+  color: white;
+}
+
+.summary-container .highlights{
+  @media(max-width: $size-xs-max){
+    padding-left: 20px;
+  }
+}
