@@ -5,6 +5,8 @@ import Calendar from './Components/calendar';
 import Filter from './Components/filter';
 import NewItem from './Components/newItem';
 import Summary from './Components/summary';
+import ExternalScripts from './Components/externalScripts';
+import StorageWrapper from './other/storageWrapper';
 import './other/main.scss';
 import './app.scss';
 class App extends React.Component{
@@ -21,62 +23,20 @@ class App extends React.Component{
   }
 
   componentDidUpdate(prevProps,prevState){
-    this.saveData();
+    StorageWrapper.saveData(this.state.fileStorageType);
   }
 
   componentDidMount(){
     this.getInitialData();
     // TODO: Set timeout to refresh
   }
+
   getInitialData(){
+    let data = StorageWrapper.getInitialData(this.  state.fileStorageType);
     if (this.state.fileStorageType == 'cache'){
-      // Check if LocalStorage "GetItDone" exists, if not , create
-      if (window.localStorage.getItem("GetItDone") != null)
-        this.getData();
-      else
-        window.localStorage.setItem("GetItDone",
-          JSON.stringify(this.state)
-        );
-      console.log(window.localStorage.getItem('GetItDone'));
-    }
-/*    else if (this.state.fileStorageType == 'json'){
-      this.getData();
-    }*/
-    else{}
-  }
-
-  getData(){
-    if (this.state.fileStorageType=='cache'){
-      let localStorage = JSON.parse(window.localStorage.getItem("GetItDone"));
       // TODO: Loop this over elements names
-      this.setState({items:  localStorage.items, categories: localStorage.categories });
+      this.setState({items:  data.items, categories: data.categories });
     }
-/*    else if (this.state.fileStorageType=='json'){
-      $.ajax({
-        url: '/public/data.json',
-        success: function(data){
-          console.info(data);
-          for (let key in data){
-            this.setState({key: data[key]});
-          }
-        },
-        error: function(err){
-          console.error(err);
-        }
-      });
-    }*/
-    else{
-
-    }
-  }
-
-  saveData(){
-    if (this.state.fileStorageType == 'cache')
-      window.localStorage.setItem("GetItDone",JSON.stringify(this.state));
-/*    else if (this.state.fileStorageType == 'json')
-      console.log(JSON.stringify(this.state));*/
-    else
-      console.log('else');
   }
 
   updateActiveCategory(value){
@@ -153,28 +113,32 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="container">
-        <div className="row">
-          <br/>
-          <Summary items={this.state.items} className="col-xs-12" categories={this.state.categories}
-          deleteItem={this.deleteItem.bind(this)}
-          editItem={this.editItem.bind(this)} />
-          <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
-          <Filter categories={this.state.categories} activeCategory={this.state.activeCategory} className="col-xs-12"
-              updateActiveCategory={this.updateActiveCategory.bind(this)}  
-              deleteCategory={this.deleteCategory.bind(this)}
-              saveNewCategory={this.updateCategoriesList.bind(this)}
+      <div className="app-container">
+        <div className="container">
+          <div className="row">
+            <br/>
+            <Summary items={this.state.items} className="col-xs-12" categories={this.state.categories}
+            deleteItem={this.deleteItem.bind(this)}
+            editItem={this.editItem.bind(this)} />
+            <NewItem className="col-xs-12" saveNewItem={this.saveItem.bind(this)} categories={this.state.categories}/>
+            <Filter categories={this.state.categories} activeCategory={this.state.activeCategory} className="col-xs-12"
+                updateActiveCategory={this.updateActiveCategory.bind(this)}  
+                deleteCategory={this.deleteCategory.bind(this)}
+                saveNewCategory={this.updateCategoriesList.bind(this)}
+              />
+            <List className="col-xs-12 col-md-12" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage} itemsPerPage={this.state.itemsPerPage}
+            changeNumberItemsPerPage={this.changeNumberItemsPerPage.bind(this)}
+            updateCurrentPage={this.updateCurrentPage.bind(this)}
+            deleteItem={this.deleteItem.bind(this)}
+            editItem={this.editItem.bind(this)}
+            saveItem={this.saveItem.bind(this)}
             />
-          <List className="col-xs-12 col-md-12" items={this.state.items} categories={this.state.categories} activeCategory={this.state.activeCategory} currentPage={this.state.currentPage} itemsPerPage={this.state.itemsPerPage}
-          changeNumberItemsPerPage={this.changeNumberItemsPerPage.bind(this)}
-          updateCurrentPage={this.updateCurrentPage.bind(this)}
-          deleteItem={this.deleteItem.bind(this)}
-          editItem={this.editItem.bind(this)}
-          saveItem={this.saveItem.bind(this)}
-          />
-          <Calendar className="col-xs-12" items={this.state.items} activeCategory={this.state.activeCategory}/>
+            <Calendar className="col-xs-12" items={this.state.items} activeCategory={this.state.activeCategory}/>
+          </div>
         </div>
+        <ExternalScripts/>
       </div>
+
     );
   }
 }
