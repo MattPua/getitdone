@@ -207,6 +207,13 @@ class Item extends React.Component{
     );
   }
 
+  // Convert the item to a proper JSON format
+  static convertToJSON(item){
+    let object = item;
+    object.deadline = item.deadline.toString();
+    return object;
+  }
+
   render(){
     let details = this.getDetailSection();
     let actions = this.getActions();

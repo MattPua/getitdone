@@ -4,12 +4,14 @@ import List from './Components/list';
 import Calendar from './Components/calendar';
 import Filter from './Components/filter';
 import NewItem from './Components/newItem';
+import Item from './Components/item';
 import Summary from './Components/summary';
 import ExternalScripts from './Components/externalScripts';
 import StorageWrapper from './other/storageWrapper';
 import C from './other/_constants';
 import './other/main.scss';
 import './app.scss';
+import _ from 'underscore';
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -19,12 +21,13 @@ class App extends React.Component{
       categories: ['All'],
       currentPage: 1,
       itemsPerPage: 4,
-      fileStorageType: C.FileStorageType.CACHE,
+      fileStorageType: C.FileStorageType.FIREBASE,
     };
   }
 
   componentDidUpdate(prevProps,prevState){
-    StorageWrapper.saveData(this.state.fileStorageType,this.state);
+    if (this.state.fileStorageType == C.FileStorageType.CACHE)
+      StorageWrapper.saveDataToCache(this.state);
   }
 
   componentDidMount(){
@@ -38,6 +41,28 @@ class App extends React.Component{
       // TODO: Loop this over elements names
       callback = (function(data){
         this.setState({items:  data.items, categories: data.categories })
+      }).bind(this);
+    }
+    else if (this.state.fileStorageType == C.FileStorageType.FIREBASE){
+      callback = (function(data){
+        // TODO: Holy this is ugly
+        for(let i in data){
+          if (i == 'items'){
+            let itemsArray = [];
+            for (let j in data[i])
+              itemsArray.push(data[i][j]);
+            this.setState({items: itemsArray});
+            continue;
+          }
+          else if (i == 'categories'){
+            let categoriesArray = [];
+            for (let j in data[i])
+              categoriesArray.push(data[i][j]);
+            this.setState({categories: categoriesArray});
+            continue;
+          }
+          this.setState({i: data[i]});
+        }
       }).bind(this);
     }
     let data = StorageWrapper.getInitialData(this.  state.fileStorageType,this.state,callback);
@@ -62,6 +87,9 @@ class App extends React.Component{
     let newItems = oldItems.concat(item);
     this.setState({items: newItems});
     this.updateCategoriesList(item.category);
+
+    if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
+      StorageWrapper.saveDataToFirebase('items','/items/',Item.convertToJSON(item));
   }
 
   editItem(item){
@@ -72,6 +100,8 @@ class App extends React.Component{
     foundItem = foundItem[0];
     existingItems[existingItems.indexOf(foundItem)] = item.state;
     this.setState({items: existingItems});
+    if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
+      StorageWrapper.updateDataToFirebase('items','/items/'+item.id,Item.convertToJSON(item));
   }
 
   updateCategoriesList(newCategory){

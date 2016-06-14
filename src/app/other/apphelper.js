@@ -6,6 +6,7 @@ class AppHelper{
   static toUpperOne(word){
     return word[0].toUpperCase() + word.substring(1,word.length);
   }
+
 }
 
 export default AppHelper;

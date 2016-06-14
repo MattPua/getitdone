@@ -1,5 +1,6 @@
 import FirebaseWrapper from './FirebaseWrapper';
 import C from './../other/_constants';
+import AppHelper from './../other/apphelper';
 class StorageWrapper {
   static getInitialData(storageType,state,callback){
     if (storageType == C.FileStorageType.CACHE){
@@ -14,10 +15,12 @@ class StorageWrapper {
         );
     }
     else if (storageType == C.FileStorageType.FIREBASE){
-      FirebaseWrapper.watchNode('/',function(data){
+      // Check if it doesn't exist, if it doesn't create a new blob in firebase
+      FirebaseWrapper.readNodeNow('/',function(data){
         callback(data);
-        console.log(data);
       });
+
+      // TODO: Trigger Watches on specific children
     }
     else console.error("invalid filestorage type!");
   }
@@ -32,12 +35,17 @@ class StorageWrapper {
     else console.error("invalid filestorage type!");
   }
 
-  static saveData(storageType,state){
-    if (storageType == C.FileStorageType.CACHE)
-      window.localStorage.setItem(C.APPNAME,JSON.stringify(state));
-    else if (storageType == C.FileStorageType.FIREBASE){
-    }
-    else console.error("invalid filestorage type!");
+  static saveDataToCache(state){
+    window.localStorage.setItem(C.APPNAME,JSON.stringify(state));
+  }
+
+  static saveDataToFirebase(child,path,data){
+    // We assume every data is an object, and contains an ID key
+    FirebaseWrapper.pushNewData(child,path,data);
+  }
+
+  static updateDataToFirebase(child,path,data){
+    FirebaseWrapper.updateData(child,path,data);
   }
 
 

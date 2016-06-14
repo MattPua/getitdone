@@ -4,13 +4,23 @@ class FirebaseWrapper{
 
   // Overwrites data at location
   static writeData(path,data){
-    firebase.database().ref(path).set(data);
+    try{
+      firebase.database().ref(path).set(data);
+    }
+    catch(err){
+      console.error("FAILED WRITING DATA TO FIREBASE to: "+ path);
+      console.error(data)
+    }
   }
 
   // Pushes to list without overwriting
   static pushNewData(child,path,data){
     let key = firebase.database().ref().child(child).push().key;
-    return firebase.database().ref(path).update(data);
+    return firebase.database().ref(path+data.id).update(data);
+  }
+
+  static updateData(child,path,data){
+    return firebase.database().ref(path+data.id).update(data);
   }
   // TODO: Transactions
   
