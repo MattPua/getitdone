@@ -3,19 +3,19 @@ var path = require('path');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var BUILD_DIR = path.resolve(__dirname, 'src/public');
+var BUILD_DIR = path.resolve(__dirname, './build');
 var APP_DIR = path.resolve(__dirname, 'src/app');
-var FONTS_DIR = path.resolve(__dirname,'src/public/fonts');
 
 var config = {
   entry: [
   APP_DIR + '/app.js',
-  'webpack-dev-server/client?http://0.0.0.0:8080', //WebpackDevServer host and port
-  'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+  //'webpack-dev-server/client?http://0.0.0.0:8080', //WebpackDevServer host and port
+  //'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
   ],
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module : {
     loaders : [
@@ -66,7 +66,14 @@ var config = {
       $: "jquery",
       jQuery: "jquery",
       React: 'react'
-    })
+    }),
+    // Uglify in production.
+/*      new webpack.optimize.UglifyJsPlugin({
+        mangle: {
+            except: ['$super', '$', 'exports', 'require']
+        },
+        sourcemap: false
+      })*/
     // new webpack.HotModuleReplacementPlugin()
   ],
   // Some modules might use their own jquery. Use this to resolve other jquery into mine

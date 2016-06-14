@@ -1,9 +1,9 @@
-@import './mixins';
-
+@import './_mixins';
+@import './_variables';
 // FONT FAMILIES
-@include font-face("libel-suit-rg", "/public/fonts/libel-suit/libel-suit-rg", $weight: normal, $style: normal);
-@include font-face("teen-regular", "/public/fonts/teen-regular/teen-regular", $weight: normal, $style: normal);
-@include font-face('angelique-rose','/public/fonts/angelique-rose/angelique-rose',$weight: normal, $style:normal);
+@include font-face("libel-suit-rg", $FONT_DIR+"/libel-suit/libel-suit-rg", $weight: normal, $style: normal);
+@include font-face("teen-regular", $FONT_DIR+"/teen-regular/teen-regular", $weight: normal, $style: normal);
+@include font-face('angelique-rose',$FONT_DIR+"/angelique-rose/angelique-rose",$weight: normal, $style:normal);
 
 
 // END FONT FAMILIES
