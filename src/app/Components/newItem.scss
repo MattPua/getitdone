@@ -1,9 +1,0 @@
-@import '../other/main';
-.new-item-container{
-  background-color: $primary-background;
-  border: 1px solid $primary-border;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  @include container-box-shadow();
-  
-}

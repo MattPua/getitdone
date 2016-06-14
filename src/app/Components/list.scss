@@ -1,8 +1,0 @@
-@import '../other/main';
-.list .list-container{
-  background-color: $primary-background;
-  border: 1px solid $primary-border;
-  padding-top: 5px;
-  @include container-box-shadow();
-}
-
