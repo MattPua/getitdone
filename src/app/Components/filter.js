@@ -73,7 +73,9 @@ class Filter extends React.Component{
             activeItem={this.props.activeCategory} 
             handleOnClick={this.props.updateActiveCategory}/>
           <ToggleSectionButton isShown={this.state.showForm} toggle={this.toggleShowForm.bind(this)} />
+          <hr/>
           {this.getNewCategory()}
+
         </div>
       </div>
     );

@@ -1,8 +1,9 @@
 import moment from 'moment';
 import UUID from 'node-uuid';
+import AppHelper from './../other/AppHelper';
+import ToggleSectionButton from './toggleSectionButton';
 import 'eonasdan-bootstrap-datetimepicker';
 import './newItem.scss';
-import AppHelper from './../other/AppHelper';
 
 class NewItem extends  React.Component{
   constructor(props){
@@ -11,7 +12,8 @@ class NewItem extends  React.Component{
       id: UUID.v4(),
       text: '',
       category: this.props.categories[0],
-      status: 'incomplete'
+      status: 'incomplete',
+      showForm: true
     };
   }
 
@@ -45,37 +47,55 @@ class NewItem extends  React.Component{
     $(".new-item .datetimepicker").datetimepicker();
   }
 
-  render(){
-    let categories = [];
-    for (let index in this.props.categories){
-      categories.push(
-        <option value={this.props.categories[index]}>{this.props.categories[index]}</option>
-        );
-    }
+  componentDidUpdate(prevProps,prevState){
+    if (!prevState.showForm && this.state.showForm)
+      $(".new-item .datetimepicker").datetimepicker();
+  }
 
+  toggleForm(){
+    this.setState({showForm: !this.state.showForm});
+  }
+
+  getForm(){
+    if (this.state.showForm){
+      let categories = [];
+      for (let index in this.props.categories){
+        categories.push(
+          <option value={this.props.categories[index]}>{this.props.categories[index]}</option>
+        );
+      }
+      return(
+        <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+          </div>
+          <div className="form-group">
+            <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
+              {categories}
+            </select>
+          </div>
+          <div className="form-group">
+            <div className="input-group date datetimepicker">
+              <input type="text" className="form-control deadline"  readonly="readonly" placeholder="Deadline" ref="deadline"/>
+              <span className="input-group-addon">
+                <span className="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <button className="btn" type="submit">Save</button>
+        </form>
+      );
+    }
+  }
+
+  render(){
     return(
       <div className={"new-item " + this.props.className}>
         <div className="col-xs-12 new-item-container">
-          <p>New Item</p>
-          <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
-            </div>
-            <div className="form-group">
-              <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
-                {categories}
-              </select>
-            </div>
-            <div className="form-group">
-              <div className="input-group date datetimepicker">
-                <input type="text" className="form-control deadline"  readonly="readonly" placeholder="Deadline" ref="deadline"/>
-                <span className="input-group-addon">
-                  <span className="glyphicon glyphicon-calendar"></span>
-                </span>
-              </div>
-            </div>
-            <button className="btn" type="submit">Save</button>
-          </form>
+          <span>New Item</span>
+          <ToggleSectionButton isShown={this.state.showForm} toggle={this.toggleForm.bind(this)}/>
+          <hr/>
+          {this.getForm()}
         </div>
       </div>
     );
