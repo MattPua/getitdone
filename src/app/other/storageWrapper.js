@@ -1,20 +1,21 @@
 import FirebaseWrapper from './FirebaseWrapper';
+import C from './../other/_constants';
 class StorageWrapper {
-  static getInitialData(storageType,state){
-    if (storageType == 'cache'){
-      // Check if LocalStorage "GetItDone" exists, if not , create
-      if (window.localStorage.getItem("GetItDone") != null)
-        return StorageWrapper.getData(storageType);
-      else{
-        window.localStorage.setItem("GetItDone",
+  static getInitialData(storageType,state,callback){
+    if (storageType == C.FileStorageType.CACHE){
+      // Check if LocalStorage C.APPNAME exists, if not , create
+      if (window.localStorage.getItem(C.APPNAME) != null){
+        let data= StorageWrapper.getData(storageType);
+        callback(data);
+      }
+      else
+        window.localStorage.setItem(C.APPNAME,
           JSON.stringify(state)
         );
-        return StorageWrapper.getData(storageType);
-      }
-
     }
-    else if (storageType == 'firebase'){
+    else if (storageType == C.FileStorageType.FIREBASE){
       FirebaseWrapper.watchNode('/',function(data){
+        callback(data);
         console.log(data);
       });
     }
@@ -22,19 +23,19 @@ class StorageWrapper {
   }
 
   static getData(storageType){
-    if (storageType=='cache'){
-      let localStorage = JSON.parse(window.localStorage.getItem("GetItDone"));
+    if (storageType==C.FileStorageType.CACHE){
+      let localStorage = JSON.parse(window.localStorage.getItem(C.APPNAME));
       return localStorage;
     }
-    else if (storageType == 'firebase'){
+    else if (storageType == C.FileStorageType.FIREBASE){
     }
     else console.error("invalid filestorage type!");
   }
 
   static saveData(storageType,state){
-    if (storageType == 'cache')
-      window.localStorage.setItem("GetItDone",JSON.stringify(state));
-    else if (storageType == 'firebase'){
+    if (storageType == C.FileStorageType.CACHE)
+      window.localStorage.setItem(C.APPNAME,JSON.stringify(state));
+    else if (storageType == C.FileStorageType.FIREBASE){
     }
     else console.error("invalid filestorage type!");
   }

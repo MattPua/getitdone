@@ -7,6 +7,7 @@ import NewItem from './Components/newItem';
 import Summary from './Components/summary';
 import ExternalScripts from './Components/externalScripts';
 import StorageWrapper from './other/storageWrapper';
+import C from './other/_constants';
 import './other/main.scss';
 import './app.scss';
 class App extends React.Component{
@@ -18,7 +19,7 @@ class App extends React.Component{
       categories: ['All'],
       currentPage: 1,
       itemsPerPage: 4,
-      fileStorageType: 'cache',
+      fileStorageType: C.FileStorageType.CACHE,
     };
   }
 
@@ -32,11 +33,14 @@ class App extends React.Component{
   }
 
   getInitialData(){
-    let data = StorageWrapper.getInitialData(this.  state.fileStorageType,this.state);
-    if (this.state.fileStorageType == 'cache'){
+    let callback = null;
+    if (this.state.fileStorageType == C.FileStorageType.CACHE){
       // TODO: Loop this over elements names
-      this.setState({items:  data.items, categories: data.categories });
+      callback = (function(data){
+        this.setState({items:  data.items, categories: data.categories })
+      }).bind(this);
     }
+    let data = StorageWrapper.getInitialData(this.  state.fileStorageType,this.state,callback);
   }
 
   updateActiveCategory(value){
