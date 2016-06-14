@@ -108,7 +108,7 @@ class Calendar extends React.Component{
         <div className="month-action">
           <span className="next action glyphicon glyphicon-chevron-right pull-right" onClick={this.nextMonth.bind(this)}></span>
         </div>
-        {viewButtons}
+        {/*viewButtons*/}
       </div>
     );
   }

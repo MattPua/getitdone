@@ -16,7 +16,7 @@ class App extends React.Component{
       items: [],
       categories: ['All'],
       currentPage: 1,
-      itemsPerPage: 5
+      itemsPerPage: 4
     };
   }
 

@@ -75,8 +75,8 @@ class Summary extends React.Component{
           <div className="row">
             <Header text="Get It Done" className="col-xs-12"/>
           </div>
-          <p className="time">{this.state.datetime.format("h:mm A")}</p>
           <p className="date">{this.state.datetime.format("dddd MMMM Do, YYYY")}</p>
+          <p className="time">{this.state.datetime.format("h:mm A")}</p>
           <br/>
           {this.getSummaryDetails()}
         </div>

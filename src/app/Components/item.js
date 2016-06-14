@@ -31,6 +31,8 @@ class Item extends React.Component{
       || prevState.category != this.state.category
       || prevState.deadline!=this.state.deadline)
       this.props.editItem(this);
+    if (!prevState.editMode && this.state.editMode)
+      $(this.refs.text).focus();
 
     if (this.state.editMode)
       $(this.refs.datetimepicker).datetimepicker();
@@ -133,6 +135,8 @@ class Item extends React.Component{
   }
 
   getActions(){
+
+    // TODO: Make another if EditMode true action for complete, and switch it for a save icon
     return(
       <div className="actions">
         <div className="standard">
@@ -168,7 +172,7 @@ class Item extends React.Component{
       returnValue = [
         <form onSubmit={this.toggleEditMode.bind(this)} className="form-inline col-xs-9">
           <div className="form-group">
-            <input type="text" className="text form-control" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+            <input type="text" className="text form-control" value={this.state.text} onChange={this.handleTextChange.bind(this)} ref="text"/>
           </div>
           <div className="form-group">
           <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>

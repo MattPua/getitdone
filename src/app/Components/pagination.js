@@ -78,9 +78,9 @@ class Pagination extends React.Component{
             Items Per Page: 
           </label>
           <select className="form-control" name="itemsPerPage" onChange={this.handleItemsPerPageChange.bind(this)} value={this.props.itemsPerPage}>
-            <option value={1}>1</option>
-            <option value={3}>3</option>
-            <option value={5}>5</option>
+            <option value={2}>2</option>
+            <option value={4}>4</option>
+            <option value={8}>8</option>
             <option value={10}>10</option>
           </select>
         </div>
@@ -107,7 +107,7 @@ class Pagination extends React.Component{
 }
 
 Pagination.defaultProps={
-  itemsPerPage: 5,
+  itemsPerPage: 4,
   className: '',
   items: []
 };

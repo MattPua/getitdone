@@ -78,6 +78,7 @@
   font-weight: normal;
   font-size: 10px;
   top: 2px;
+  z-index: 1;
 }
 .day-container .day.past-due .count{
   background-color: $primary-failure;
