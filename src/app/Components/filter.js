@@ -19,6 +19,8 @@ class Filter extends React.Component{
   }
 
   componentDidUpdate(prevProps,prevState){
+    if (!prevState.showForm && this.state.showForm)
+      $(this.refs.category).focus();
     // TODO: Add animations for changing
   }
 
@@ -53,7 +55,7 @@ class Filter extends React.Component{
       return(
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} />
+            <input type="text" className="form-control" placeholder="Category..." onChange={this.onChange.bind(this)} value={this.state.newCategory} ref="category" />
             <span className="input-group-btn">
               <button className="btn" type="submit" onClick={this.handleOnClick.bind(this)}>Save Category</button>
             </span>

@@ -48,8 +48,10 @@ class NewItem extends  React.Component{
   }
 
   componentDidUpdate(prevProps,prevState){
-    if (!prevState.showForm && this.state.showForm)
+    if (!prevState.showForm && this.state.showForm){
       $(".new-item .datetimepicker").datetimepicker();
+      $(this.refs.text).focus();
+    }
   }
 
   toggleForm(){
@@ -67,7 +69,7 @@ class NewItem extends  React.Component{
       return(
         <form onSubmit={this.handleNewItem.bind(this)} className='form-inline new-item'>
           <div className="form-group">
-            <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+            <input type="text" className="form-control" placeholder="Task Description" value={this.state.text} onChange={this.handleTextChange.bind(this)} ref="text"/>
           </div>
           <div className="form-group">
             <select className="form-control" onChange={this.handleCategoryChange.bind(this)} value={this.state.category}>
