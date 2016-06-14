@@ -68,7 +68,6 @@ class Calendar extends React.Component{
       }
       if (startDate.isAfter(Moment(this.state.date).endOf('month'))) break;
     }
-
     return days;
   }
 
