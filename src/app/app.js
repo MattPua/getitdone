@@ -80,6 +80,8 @@ class App extends React.Component{
     foundItem = foundItem[0];
     existingItems.splice(existingItems.indexOf(foundItem),1);
     this.setState({items:existingItems});
+    if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
+      StorageWrapper.deleteDataFromFirebase('/items/'+id);
   }
 
   saveItem(item){
@@ -113,6 +115,8 @@ class App extends React.Component{
     }
     let newCategories = oldCategories.concat(newCategory);
     this.setState({categories: newCategories});
+    // TODO: Update firebase
+
   }
 
   deleteCategory(category){
@@ -134,6 +138,8 @@ class App extends React.Component{
       if (item.category.toLowerCase() == category.toLowerCase())
         item.category = '';
     }
+
+    // TODO: Update firebase
     this.setState({items: existingItems});
   }
 

@@ -19,8 +19,6 @@ class StorageWrapper {
       FirebaseWrapper.readNodeNow('/',function(data){
         callback(data);
       });
-
-      // TODO: Trigger Watches on specific children
     }
     else console.error("invalid filestorage type!");
   }
@@ -31,6 +29,7 @@ class StorageWrapper {
       return localStorage;
     }
     else if (storageType == C.FileStorageType.FIREBASE){
+      // TODO: Trigger Watches on specific children
     }
     else console.error("invalid filestorage type!");
   }
@@ -46,6 +45,10 @@ class StorageWrapper {
 
   static updateDataToFirebase(child,path,data){
     FirebaseWrapper.updateData(child,path,data);
+  }
+
+  static deleteDataFromFirebase(path){
+    FirebaseWrapper.deleteData(path);
   }
 
 

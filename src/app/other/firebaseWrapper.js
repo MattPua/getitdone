@@ -15,17 +15,34 @@ class FirebaseWrapper{
 
   // Pushes to list without overwriting
   static pushNewData(child,path,data){
-    let key = firebase.database().ref().child(child).push().key;
-    return firebase.database().ref(path+data.id).update(data);
+    try{
+      let key = firebase.database().ref().child(child).push().key;
+      return firebase.database().ref(path+data.id).update(data);
+    }
+    catch(err){
+      console.error("FAILED pushing new DATA TO FIREBASE to: "+ path);
+      console.error(data)
+    }
   }
 
   static updateData(child,path,data){
-    return firebase.database().ref(path+data.id).update(data);
+    try{
+      return firebase.database().ref(path+data.id).update(data);
+    }
+    catch(err){
+      console.error("FAILED updating DATA TO FIREBASE to: "+ path);
+      console.error(data)
+    }
   }
   // TODO: Transactions
   
   static deleteData(path){
-    firebase.database().ref(path).set(null);
+    try{
+      firebase.database().ref(path).set(null);
+    }
+    catch(err){
+      console.error("FAILED deleting DATA from FIREBASE to: "+ path);
+    }
   }
 
   static readNodeNow(path,callback){
