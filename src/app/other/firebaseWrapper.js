@@ -17,7 +17,7 @@ class FirebaseWrapper{
   static pushNewData(child,path,data){
     try{
       let key = firebase.database().ref().child(child).push().key;
-      return firebase.database().ref(path+data.id).update(data);
+      return firebase.database().ref(path).update(data);
     }
     catch(err){
       console.error("FAILED pushing new DATA TO FIREBASE to: "+ path);
@@ -27,7 +27,7 @@ class FirebaseWrapper{
 
   static updateData(child,path,data){
     try{
-      return firebase.database().ref(path+data.id).update(data);
+      return firebase.database().ref(path).update(data);
     }
     catch(err){
       console.error("FAILED updating DATA TO FIREBASE to: "+ path);

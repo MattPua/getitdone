@@ -91,7 +91,7 @@ class App extends React.Component{
     this.updateCategoriesList(item.category);
 
     if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
-      StorageWrapper.saveDataToFirebase('items','/items/',NewItem.convertToJSON(item));
+      StorageWrapper.saveDataToFirebase('items','/items/'+item.id,NewItem.convertToJSON(item));
   }
 
   editItem(item){
@@ -103,7 +103,7 @@ class App extends React.Component{
     existingItems[existingItems.indexOf(foundItem)] = item.state;
     this.setState({items: existingItems});
     if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
-      StorageWrapper.updateDataToFirebase('items','/items/',Item.convertToJSON(item));
+      StorageWrapper.updateDataToFirebase('items','/items/'+item.props.id,Item.convertToJSON(item));
   }
 
   updateCategoriesList(newCategory){
@@ -115,8 +115,8 @@ class App extends React.Component{
     }
     let newCategories = oldCategories.concat(newCategory);
     this.setState({categories: newCategories});
-    // TODO: Update firebase
-
+/*    if (this.state.fileStorageType == C.FileStorageType.FIREBASE)
+      StorageWrapper.updateDataToFirebase('categories','/categories/',newCategory);*/
   }
 
   deleteCategory(category){
